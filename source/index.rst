@@ -6,10 +6,17 @@
 Welcome to Creamy's documentation!
 ==================================
 
-Contents:
+Creamyとは
 
 .. toctree::
    :maxdepth: 2
+  
+   getting_start
+   tutolial
+   architecture
+   standard_tactics
+   helpers
+   development
 
 
 

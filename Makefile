@@ -5,14 +5,24 @@
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
+<<<<<<< HEAD
 BUILDDIR      = build
+=======
+BUILDDIR      = _build
+>>>>>>> 45f2b22d2302080fa6e1ad9b6e189aa48c6478fe
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
+<<<<<<< HEAD
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
+=======
+ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+# the i18n builder cannot share the environment and doctrees with the others
+I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+>>>>>>> 45f2b22d2302080fa6e1ad9b6e189aa48c6478fe
 
 .PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
 
@@ -77,17 +87,28 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
+<<<<<<< HEAD
 	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/Creamy.qhcp"
 	@echo "To view the help file:"
 	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/Creamy.qhc"
+=======
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/CreamyDocuments.qhcp"
+	@echo "To view the help file:"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/CreamyDocuments.qhc"
+>>>>>>> 45f2b22d2302080fa6e1ad9b6e189aa48c6478fe
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
+<<<<<<< HEAD
 	@echo "# mkdir -p $$HOME/.local/share/devhelp/Creamy"
 	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/Creamy"
+=======
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/CreamyDocuments"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/CreamyDocuments"
+>>>>>>> 45f2b22d2302080fa6e1ad9b6e189aa48c6478fe
 	@echo "# devhelp"
 
 epub:

@@ -1,2 +1,2 @@
-Getting Start
+Getting Started
 ==============

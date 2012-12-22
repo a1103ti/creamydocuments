@@ -1,4 +1,4 @@
-Creamyの基本原則
+Creamyの基本概念
 ====================
 
 Creamyフレームワークはアプリケーションの強力な基礎部分を提供します。そしてこのフレームワークは MVC の原則に従っているため、アプリケーションを多くの側面で簡単にカスタマイズし拡張することができます。
@@ -8,6 +8,7 @@ Creamyフレームワークはアプリケーションの強力な基礎部分�
 .. toctree::
    :maxdepth: 2
 
+   basic-principles/architecture
    basic-principles/composition_of_creamy
    basic-principles/directory_structure_of_creamy
    basic-principles/creamy-conventions

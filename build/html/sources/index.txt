@@ -28,7 +28,7 @@ Contens:
 -----------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
    getting_start
    tutolial

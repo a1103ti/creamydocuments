@@ -6,16 +6,20 @@
 Welcome to Creamy's documentation!
 ==================================
 
-Contents:
+Creamyって何？:
+---------------------
+
+発展の著しい Web アプリケーションの開発手法や考え方を、デスクトップアプリケーションの開発に適用することによる生産性の向上、品質の向上、学習コストの低減するために、Webアプリケーションフレームワークをモチーフとした、JavaFX2.X向けフレームワーク。
 
 .. toctree::
    :maxdepth: 2
 
    getting_start
    tutolial
-   architecture
-   standard_tactics
+   Basic-Principles-of-Creamy
+   Developing-with-Creamy
    helpers
+   deployment
    development
 
 Indices and tables

@@ -4,4 +4,4 @@ Creamyのアーキテクチャ
 Creamy フレームワークのアーキテクチャ（主要クラス図）
 --------------------------------------------------------------------
 
-.. image:: ../img/creamy-architect-figure.gif
+.. image:: ../images/creamy-architect-figure.gif

@@ -6,13 +6,13 @@ NetBeansのインストール
 
 Creamyを利用して、アプリケーションを作成するには、NetBeans7.1以上のIDEが必要となります。
 ダウンロードは `こちら
-<http://netbeans.org>`_から
+<http://netbeans.org>`_ から
 
 Creamyのインストール
 ---------------------------------------
 
 Creamyをダウンロードします。ダウンロードは `こちら
-<http://example.com>`_から
+<http://example.com>`_ から
 
 Creamyプロジェクトの作成方法
 ---------------------------------------

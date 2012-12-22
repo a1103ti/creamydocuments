@@ -19,11 +19,11 @@ Java FXとは
 * 2011年、JavaFX 2.0 にて JavaFX Script を廃止、FXML を採用
 * 今までの標準的な GUI ライブラリである Swing の後継
 
-** 特徴 **
+**特徴**
 
 画面構造と処理が分離されている -> デザイナーと開発者の役割分担が可能
 
-`Java FXを詳しく知りたい方はこちらをクリック<http://docs.oracle.com/javafx/index.html>`
+`Java FXを詳しく知りたい方はこちらをクリック<http://docs.oracle.com/javafx/index.html>`_
 
 .. toctree::
    :maxdepth: 2

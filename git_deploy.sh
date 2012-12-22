@@ -4,6 +4,3 @@ cp -r ./build/html/* ./
 git add .
 git commit -a -m 'commit all'
 git push origin gh-pages
-
-echo 'a1103ti'
-echo 'isobe4448'

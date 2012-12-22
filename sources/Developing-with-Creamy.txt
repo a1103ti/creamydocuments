@@ -9,7 +9,6 @@ Creamyによる開発
 
 
    developing/requirements
-   developing/installation-preparation
    developing/installation
    developing/configuration
    developing/controllers

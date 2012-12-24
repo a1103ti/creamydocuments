@@ -38,15 +38,11 @@ Creamyプロジェクトの作成方法
  #. JavaFXアプリケーションを選択してください。
 
 #. ディレクトリツリーの作成、jarファイルの追加とクラスパスの編集
-
 #. コマンドライン操作
 
  #. Windowsの場合
-
   #. creamy.bat
-
  #. Mac OS/Linuxの場合	
-
   #. creamy.sh
 
 #. Scaffold command

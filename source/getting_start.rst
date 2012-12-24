@@ -18,7 +18,7 @@ NetBeansのインストール
 
 .. note::
 
-Creamyでは、NetBeans IDEでの開発を前提としております。
+.. Creamyでは、NetBeans IDEでの開発を前提としております。
 
 
 Creamyのインストール

@@ -19,7 +19,8 @@ NetBeansのインストール
 Creamyのインストール
 ---------------------------------------
 
-* Creamyをダウンロードします。ダウンロードは `こちら
+* Creamyをダウンロードします。
+ダウンロードは `こちら
 <http://example.com>`_ から
 
 * 環境変数（PATH）への追加
@@ -32,8 +33,8 @@ Creamyプロジェクトの作成方法
 # ディレクトリツリーの作成、jarファイルの追加とクラスパスの編集
 ## コマンドライン操作
 ### Windowsの場合
-#### *.bat
+#### creamy.bat
 ### Mac OS/Linuxの場合
-#### *.sh
+#### creamy.sh
 # Scaffold command
 

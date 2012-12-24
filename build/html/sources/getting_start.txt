@@ -33,17 +33,17 @@ Creamyのインストール
 Creamyプロジェクトの作成方法
 ---------------------------------------
 
-#. NetBeansプロジェクトの新規作成
+1. NetBeansプロジェクトの新規作成
 
- #. JavaFXアプリケーションを選択してください。
+ 1. JavaFXアプリケーションを選択してください。
 
-#. ディレクトリツリーの作成、jarファイルの追加とクラスパスの編集
-#. コマンドライン操作
+2. ディレクトリツリーの作成、jarファイルの追加とクラスパスの編集
+3. コマンドライン操作
 
- #. Windowsの場合
-  #. creamy.bat
- #. Mac OS/Linuxの場合	
-  #. creamy.sh
+ 1. Windowsの場合
+  1. creamy.bat
+ 2. Mac OS/Linuxの場合	
+  1. creamy.sh
 
-#. Scaffold command
+4. Scaffold command
 

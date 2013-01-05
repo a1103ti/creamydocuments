@@ -1,2 +1,3 @@
 testfile by takahashi
 testfile with miyabe
+testfile with miyabe2

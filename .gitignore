@@ -4,4 +4,3 @@
 git_deploy.sh
 
 #buildフォルダ以下は、無視
-build/*

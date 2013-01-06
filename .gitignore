@@ -1,1 +1,4 @@
-/sampleJavaFx/nbproject/private/
+#
+
+#buildフォルダ以下は、無視
+build/*.*

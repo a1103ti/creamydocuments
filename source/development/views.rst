@@ -2,8 +2,31 @@
 Views
 =============================================
 
-viewsのディレクトリ内に置くべきファイル
+viewsパッケージに置くべきファイル
 =============================================
+viewsパッケージは、MVCアーキテクチャのViewにあたるもので、画面表示に関わる次のファイルを配置します。
+
+* javaファイル
+* fxmlファイル
+* cssファイル
+* イメージファイル
+
+これらのファイルは、viewsパッケージにCreamyコントローラクラス名をすべて小文字に変換した名前でパッケージを作成し、更にその配下に配置します。
+
+Creamyアプリケーションは、１つ以上のコントローラクラスを作成できますので、それぞれに対応するviews.<Creamyコントローラクラス名>パッケージを作成します。
+
+次の例は、Creamyコントローラクラスがcontrollers.DialogControllerのviewパッケージ構成です。
+
+- child_window
+ - contollers
+  - DialogController.java
+ - views
+  - diaologcontroller
+   - DialogBase.css
+   - DialogBase.java
+   - DialogBase.vm.fxml
+   - headback001.jpg
+                 :
 
 継承すべきクラス
 =============================================

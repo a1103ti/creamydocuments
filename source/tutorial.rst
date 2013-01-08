@@ -10,4 +10,4 @@
 .. toctree::
    :maxdepth: 2
 
-   computer_database
+   tutorial/computer_database

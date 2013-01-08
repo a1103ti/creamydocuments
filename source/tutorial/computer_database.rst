@@ -5,6 +5,8 @@ Computer Database
 OverView
 =============================================
 
+.. image:: ../images/computer-database-overview.jpg
+
 Controllerの書き方
 =============================================
 

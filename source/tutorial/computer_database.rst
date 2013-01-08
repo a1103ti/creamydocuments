@@ -10,6 +10,18 @@ OverView
 Controllerの書き方
 =============================================
 
+.. code-block:: java
+
+    package creamy.mvc;
+
+    /**
+    *
+    * @author miyabetaiji
+    */
+    public enum Status {
+        OK, BAD_REQUEST, INTERNAL_ERROR, VALIDATION_ERR;
+   }
+
 Viewの書き方
 =============================================
 

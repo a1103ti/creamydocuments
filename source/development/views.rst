@@ -103,14 +103,12 @@ viewsクラスは、AvailableActivityクラスを継承して作成します。
 =============================================
 AvailableActivityクラスは、画面表示に必要なCreamy UIコントロールの描画メソッドを提供します。
 
-各コントロールについては、`Formコントロール <form_control.html>`_ を参照して下さい。
+各Creamy UIコントロールの詳細については、`Formコントロール <form_control.html>`_ を参照して下さい。
 
 
 
 CFGridFormの生成
 ******************
-
-CFGridFormを生成します。pathには、画面遷移先のパスを指定します。
 
 .. code-block:: java
 
@@ -118,9 +116,11 @@ CFGridFormを生成します。pathには、画面遷移先のパスを指定し
         return helper.gridForm(path);
     }
 
+CFGridFormを生成します。pathには、画面遷移先のパスを指定します。
+
 **記述例**
 
-次の例では、Applicationコントローラクラスのsaveメソッドを実行するpathを指定してCFGridFormを生成しています。データ送信メソッドはPOST、スタイルシートとしてgird-formを適用しています。
+次の例では、Applicationコントローラクラスのsaveメソッドを実行するpathを指定してCFGridFormを生成しています。データ送信メソッドはPOST、スタイルクラスとしてgird-formを適用しています。
 
 .. code-block:: java
 
@@ -132,13 +132,13 @@ CFGridFormを生成します。pathには、画面遷移先のパスを指定し
 CFHFormの生成
 ******************
 
-CFHFormを生成します。pathには、画面遷移先のパスを指定します。
-
 .. code-block:: java
 
     public CFHForm hform(String path) {
         return helper.hform(path);
     }
+
+CFHFormを生成します。pathには、画面遷移先のパスを指定します。
 
 **記述例**
 
@@ -153,13 +153,13 @@ CFHFormを生成します。pathには、画面遷移先のパスを指定しま
 CFVFormの生成
 ******************
 
-CFVFormを生成します。pathには、画面遷移先のパスを指定します。
-
 .. code-block:: java
 
     public CFVForm vform(String path) {
         return helper.vform(path);
     }
+
+CFVFormを生成します。pathには、画面遷移先のパスを指定します。
 
 **記述例**
 
@@ -167,24 +167,100 @@ CFVFormを生成します。pathには、画面遷移先のパスを指定しま
 CFLabelの生成
 ******************
 
-CFLabelを生成します。textには、表示文字列を指定します。
-
 .. code-block:: java
 
     public LabelBuilder<? extends LabelBuilder> label(String text) {
         return helper.label(text);
     }
 
+CFLabelを生成します。textには、表示文字列を指定します。
+
 **記述例**
 
 
-* text(String name) CFTextFieldを生成します。nameには、name属性値にあたる文字列を指定します。 * choice(String name) CFChoiceBoxを生成します。nameには、name属性値にあたる文字列を指定します。
-* button(String name) CFButtonを生成します。nameには、name属性値にあたる文字列を指定します。* hyperlink(String path)
- CFHyperlinkを生成します。pathには、画面遷移先のパスを指定します。* linkbutton(String path) CFLinkButtonを生成します。pathには、画面遷移先のパスを指定します。* submit(String text) CFSubmitButtonを生成します。pathには、画面遷移先のパスを指定します。* animate(Node node)
- CFAnimationを生成します。nodeには、animation機能を追加するノードを指定します。
+CFTextFieldの生成
+******************
 
-記述例
-***********
+.. code-block:: java
+
+    public CFTextFieldBuilder<? extends CFTextFieldBuilder> text(String name) {
+        return helper.text(name);
+    }
+
+CFTextFieldを生成します。nameには、name属性値にあたる文字列を指定します。 
+**記述例**
+
+CFChoiceBoxの生成
+******************
+
+.. code-block:: java
+
+    public CFChoiceBoxBuilder<?, ? extends CFChoiceBoxBuilder> choice(String name) {
+        return helper.choice(name);
+    }
+
+CFChoiceBoxを生成します。nameには、name属性値にあたる文字列を指定します。
+**記述例**
+
+CFButtonの生成
+******************
+
+.. code-block:: java
+
+    public CFButtonBuilder<? extends CFButtonBuilder> button(String name) {
+        return helper.button(name);
+    }
+
+CFButtonを生成します。nameには、name属性値にあたる文字列を指定します。**記述例**
+
+CFHyperlinkの生成
+******************
+
+.. code-block:: java
+
+    public CFHyperlinkBuilder<? extends CFHyperlinkBuilder> hyperlink(String path) {
+        return helper.hyperlink(path);
+    }
+
+CFHyperlinkを生成します。pathには、画面遷移先のパスを指定します。**記述例**
+
+CFLinkButtonの生成
+******************
+
+.. code-block:: java
+
+    public CFLinkButtonBuilder<? extends CFLinkButtonBuilder> linkbutton(String path) {
+        return helper.linkbutton(path);
+    }
+
+CFLinkButtonを生成します。pathには、画面遷移先のパスを指定します。**記述例**
+
+CFSubmitButtonの生成
+******************
+
+.. code-block:: java
+
+    public CFSubmitButtonBuilder<? extends CFSubmitButtonBuilder> submit(String text) {
+        return helper.submit(text);
+    }
+
+CFSubmitButtonを生成します。pathには、画面遷移先のパスを指定します。**記述例**
+
+CFAnimationの生成
+******************
+
+.. code-block:: java
+
+    protected CFAnimation animate(Node node) {
+        return new CFAnimation(node);
+    }
+
+CFAnimationを生成します。nodeには、animation機能を追加するノードを指定します。
+
+**記述例**
+
+Activity記述例
+*********************
 以下の例では、AvailableActivityが提供するメソッドを使って画面を作成しています。
 
 .. code-block:: java

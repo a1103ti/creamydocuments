@@ -55,7 +55,7 @@ Creamyでは、このオブジェクトをActivityと呼んでいます。
 
 .. note::
 
-  Acitivityについては :doc:`request_response` で詳しく説明します。
+  Acitivityについては :doc:`architecture/view_activity` で詳しく説明します。
 
 では、最後に、まとめとしてCreamyとWebフレームワークを処理フローで比較します。
 

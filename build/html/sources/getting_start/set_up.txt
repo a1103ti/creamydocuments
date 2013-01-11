@@ -38,7 +38,7 @@ JavaFX Scene Builderは、JavaFXを用いたプログラム開発をする際に
 
 NetBeansから起動することができ、シームレスに連携します。
 
-creamyを利用する上での必須要件ではありませんが、JavaFXを用いた開発での定番ツールなので、インストールしておきましょう。
+creamyを利用する上での必須要件ではありませんが、JavaFXをもちいた開発をする上での定番ツールなので、インストールしておきましょう。
 
 JavaFX SDKと同様に、OracleのサイトからJavaFX Scene Builderをダウンロードします。
 

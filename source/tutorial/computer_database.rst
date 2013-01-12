@@ -68,6 +68,7 @@ Application.java
 ---------------------
 
 .. code-block:: java
+	:linenos:
 
 	package controllers;
 
@@ -157,12 +158,14 @@ Main.java
 この大枠のクラスを元に、Viewを作成したい場合は、クラス名にアノテーションで@Template(クラス名)とする事で、指定したクラスを大枠としたViewを作成します。
 
 .. code-block:: java
+	:linenos:
 
 	@Template(Main.class)
 	public class Create extends AvailableActivity {
 
 
 .. code-block:: java
+	:linenos:
 
 	package views.application;
 
@@ -176,6 +179,7 @@ Main.vm.fxml
 ------------------
 
 .. code-block:: xml
+	:linenos:
 
 	<?xml version="1.0" encoding="UTF-8"?>
 
@@ -226,6 +230,7 @@ Create.java
 --------------------
 
 .. code-block:: java
+	:linenos:
 
 	package views.application;
 
@@ -276,6 +281,7 @@ Create.vm.fxml
 -------------------------
 
 .. code-block:: xml
+	:linenos:
 
 	<?xml version="1.0" encoding="UTF-8"?>
 
@@ -332,6 +338,7 @@ Edit.java
 -----------------
 
 .. code-block:: java
+	:linenos:
 
 	package views.application;
 
@@ -396,6 +403,7 @@ Edit.vm.fxml
 --------------------
 
 .. code-block:: xml
+	:linenos:
 
 	<?xml version="1.0" encoding="UTF-8"?>
 
@@ -472,6 +480,7 @@ List.java
 -----------------
 
 .. code-block:: java
+	:linenos:
 
 	package views.application;
 
@@ -693,6 +702,7 @@ List.java
 	}
 
 .. code-block:: xml
+	:linenos:
 
 	<?xml version="1.0" encoding="UTF-8"?>
 
@@ -825,6 +835,7 @@ Company.java
 --------------------
 
 .. code-block:: java
+	:linenos:
 
 	package models;
 
@@ -882,7 +893,8 @@ Computer.java
 ---------------------
 
 .. code-block:: java
-
+	:linenos:
+	
 	package models;
 
 	import com.avaje.ebean.Page;

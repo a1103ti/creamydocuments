@@ -10,8 +10,8 @@
     
     <title>JavaFX開発環境をセットアップする &mdash; Creamy 0.1 documentation</title>
     
-    <link rel="stylesheet" href="../static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -22,9 +22,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Creamy 0.1 documentation" href="../index.html" />
     <link rel="up" title="Creamyを使ってみよう" href="../getting_start.html" />
     <link rel="next" title="Creamyプロジェクトの作成" href="create_creamy_project.html" />
@@ -52,9 +52,9 @@
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">JavaFX開発環境をセットアップする</a><ul>
-<li><a class="reference internal" href="#id1">JavaFXをインストールする</a></li>
+<li><a class="reference internal" href="#javafx-sdk">JavaFX SDK をインストールする</a></li>
 <li><a class="reference internal" href="#netbeans">NetBeansをインストールする</a></li>
-<li><a class="reference internal" href="#scenebuilder">SceneBuilderをインストールする</a></li>
+<li><a class="reference internal" href="#javafx-scene-builder">JavaFX Scene Builderをインストールする</a></li>
 </ul>
 </li>
 </ul>
@@ -67,7 +67,7 @@
                         title="next chapter">Creamyプロジェクトの作成</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/getting_start/set_up.txt"
+    <li><a href="../_sources/getting_start/set_up.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -93,14 +93,33 @@
             
   <div class="section" id="javafx">
 <h1>JavaFX開発環境をセットアップする<a class="headerlink" href="#javafx" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>JavaFXをインストールする<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="javafx-sdk">
+<h2>JavaFX SDK をインストールする<a class="headerlink" href="#javafx-sdk" title="Permalink to this headline">¶</a></h2>
+<p>JavaFX SDKは、JavaFXを利用するためのライブラリ・ツール群です。</p>
+<p>WindowsとMac OS X向けのJavaFX SDKはJDK 7にバンドルされています。JDKをインストールすると、JDK本体、JRE、JavaFX SDKのインストールが行われます。</p>
+<p>creamyを使う場合は、JDK1.7以上のバージョンをインストールしてください。</p>
+<p>開発用のPCに、OracleのサイトからJavaFXをダウンロードしてインストールします。</p>
+<p>ダウンロードは <a href="#id1"><span class="problematic" id="id2">`こちら&lt;http://www.oracle.com/technetwork/java/javafx/downloads/index.html&gt;`_</span></a> のページからできます。</p>
+<p>ダウンロードの前に、OTN Early Adopter License Agreementに同意する必要があります。また、インストールする際にはOracleのアカウントが必要になります。ない場合は、取得をしてからインストールします。</p>
 </div>
 <div class="section" id="netbeans">
 <h2>NetBeansをインストールする<a class="headerlink" href="#netbeans" title="Permalink to this headline">¶</a></h2>
+<p>NetBeansは、いわゆるIDE（統合開発環境）です。</p>
+<p>Javaの開発においては、Eclipseをが利用されることが多いですが、JavaFXの標準の開発環境としては、デフォルトでJavaFXのプラグインがインストールされているNetBeansが推奨されています。
+また、JavaFX Scene Builderとのシームレスな連携も実現されているので、JavaFXの開発をする際には、NetBeansを用いるのがお勧めです。</p>
+<p>NetBeansを使ったことがない方も、JavaFX、そしてcreamyの利用を機に、NetBeansを使ってみましょう。
+使い勝手はEclipseとそれほど大きな差はなく、UIも軽快に動作します。</p>
+<p>また、creamyのプロジェクト新規作成やScaffoldのツールは、NetBeans上のプロジェクトを対象として動作します。</p>
+<p>ダウンロードは <a href="#id3"><span class="problematic" id="id4">`こちら&lt;http://ja.netbeans.org/&gt;`_</span></a> のページからできます。</p>
+<p>creamyを使う場合は、7.1以上のバージョンをインストールしてください。</p>
 </div>
-<div class="section" id="scenebuilder">
-<h2>SceneBuilderをインストールする<a class="headerlink" href="#scenebuilder" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="javafx-scene-builder">
+<h2>JavaFX Scene Builderをインストールする<a class="headerlink" href="#javafx-scene-builder" title="Permalink to this headline">¶</a></h2>
+<p>JavaFX Scene Builderは、JavaFXを用いたプログラム開発をする際に、GUIデザインを支援するツールです。</p>
+<p>NetBeansから起動することができ、シームレスに連携します。</p>
+<p>creamyを利用する上での必須要件ではありませんが、JavaFXをもちいた開発をする上での定番ツールなので、インストールしておきましょう。</p>
+<p>JavaFX SDKと同様に、OracleのサイトからJavaFX Scene Builderをダウンロードします。</p>
+<p>ダウンロードは <a href="#id5"><span class="problematic" id="id6">`こちら&lt;http://www.oracle.com/technetwork/java/javafx/tools/index.html&gt;`_</span></a> のページからできます。</p>
 </div>
 </div>
 

@@ -31,6 +31,7 @@ ComputerDatabase.java
 ----------------------------
 
 .. code-block:: java
+	:linenos:
 
 	package computerdatabase;
 

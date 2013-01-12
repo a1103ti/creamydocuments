@@ -13,7 +13,7 @@ Creamyによる開発
    development/controllers
    development/models
    development/views
-   development/form_controll
+   development/form_control
    development/parameter_binding
    development/validation
    development/global_object

@@ -37,7 +37,7 @@ ActivityはJavaFXで呼ぶ「Controller」と同一です。Creamyでは用語�
 
 したがって、ActivityからFXMLに記述されたNodeを参照することができますし、FXML内にActivity内のメソッドをハンドラとして記述することができます。以下に例を示します。
 
-*Sample.fxml*
+*Sample.vm.fxml*
 
 .. code-block:: xml
 

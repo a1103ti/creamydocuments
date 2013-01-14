@@ -226,7 +226,7 @@ CFLinkButtonを生成します。pathには、画面遷移先のパスを指定�
 `Activity記述例`_ を参照して下さい。
 
 CFSubmitButtonの生成
-******************
+***********************
 
 .. code-block:: java
  
@@ -415,7 +415,7 @@ Creamyで使用するFXMLファイルには、Velocity構文を記述するこ�
 
 **記述例 - render.vm**
 
-.. code-block:: shell
+.. code-block:: text
  :linenos:
 
  #macro(render $child)

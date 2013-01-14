@@ -26,6 +26,24 @@ scaffold [テーブル名] カラム名１:属性名 カラム名２:属性名�
 "scaffold command done!"のメッセージ表示がされたら成功です。
 
 
+初期起動画面パスの記述
+=============================================
+main関数の記述されているエントリーポイントクラスのstartメソッドが、以下のように書き換えられています。
+ただ、TabBrowerのコンストラクタに指定するパスは空文字で生成されるので以下の例に従って記述します。
+XXXXXXXの部分は、controllerパッケージ配下に生成されたクラス名を参照して指定します（指定したテーブル名になります）。
+
+.. code-block:: Java
+	:linenos:
+
+	public void start(Stage primaryStage) {
+	    TabBrowser browser = new TabBrowser("/XXXXXXXController/list");		// このパス指定の記述を加える
+	    browser.setMenuBar(new DefaultBrowserMenuBar());
+	    browser.setHeader(new DefaultHeader());
+	    primaryStage.setScene(browser);
+	    primaryStage.show();
+	}
+
+
 完成イメージ
 =============================================
 scaffold実行後のsrcフォルダ配下は以下のようになります。
@@ -46,7 +64,7 @@ scaffold実行後のsrcフォルダ配下は以下のようになります。
 		    │      Company.java　・・・"Company"の部分は指定したテーブル名になる。
 		    │      
 		    ├─newprojsample　・・・NetBeans上作成されたパッケージ名（プロジェクト名と同じ）になる。
-		    │      NewProjSample.java　・・・NetBeans上作成されたパッケージ名（プロジェクト名と同じ）になる。
+		    │      NewProjSample.java　・・・エントリーポイントクラス。初期起動画面パスの記述の修正が必要。
 		    │      
 		    └─views
 		        └─companycontroller　・・・"company"の部分は指定したテーブル名になる。

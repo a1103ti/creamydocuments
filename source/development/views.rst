@@ -393,8 +393,8 @@ Creamy独自の記述方法の説明
 =============================================
 Creamyで使用するFXMLファイルには、Velocity構文を記述することが出来ます。FXMLファイルの拡張子が .vm.fxml となっているのは、Velocityのテンプレートとしての役割も持たせているためです。
 
-次は、Velocity構文の #render マクロを使った例です。
-#renderマクロは、画面描画を部分的に置き換えるときに使います。
+次は、Velocity構文の render マクロを使った例です。
+renderマクロは、画面描画を部分的に置き換えるときに使います。
 
 **記述例 - NewDialog.vm.fxml**
 
@@ -411,7 +411,7 @@ Creamyで使用するFXMLファイルには、Velocity構文を記述するこ�
 
 3行目にVelocity構文を記述しています。'<!--%' と '-->' で囲むことで、FXMLとしてはコメントとして認識されます。#renderの引数にはActivityクラス名を指定します。"NewComputer"を指定していますので、NewComputer.java、NewComputer.vm.fxml の実装が必要です。
 
-#renderマクロは、次のように定義しています。
+renderマクロは、次のように定義しています。
 
 **記述例 - render.vm**
 

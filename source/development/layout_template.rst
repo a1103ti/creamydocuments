@@ -65,9 +65,9 @@ Creamyの画面は、ActivityクラスとFXMLファイルのペアで構成さ�
 14〜20行目の<center>は<BorderPane>の中心に配置される要素で、実行例の水色枠にあたります。Computer nameのリンクをクリックしたり、Add a new computerボタンをクリックすると次の画面に遷移しますが、黒い帯のリンクバーは表示されたままです。
 
 17行目にVelocity構文の #body マクロを記述しています。この部分が画面遷移によって書き替わります。
-Velocity構文のマクロに関しては、`Creamy独自の記述方法の説明 <views.html>`_  を参照して下さい。
+Velocity構文のマクロに関しては、`Creamy独自の記述方法の説明 <views.html#creamy>`_  を参照して下さい。
 
-上記の実行例 - ComputerDatabase は初期画面で、水色枠にはコンピュータ一覧が表示されています。パッケージ構成例にある、List.javaとList.vm.fxmlファイルで構成されています。
+上記の 実行例 - ComputerDatabase は初期画面で、水色枠にはコンピュータ一覧が表示されています。パッケージ構成例にある、List.javaとList.vm.fxmlファイルで構成されています。
 
 コンピュータ一覧のコンピュータ名のリンクをクリックすると、Edit Computer画面に遷移します。これは、パッケージ構成例にある、Edit.javaとEdit.vm.fxmlファイルで構成されています。
 

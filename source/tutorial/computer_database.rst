@@ -25,7 +25,7 @@ Creamyプロジェクトの作成
 =============================================
 
 このクラスは、ユーザがNetBeansでJavaFXプロジェクトを作成した際に作成されるクラスを、
-CreamyAppクラスを継承して作成します。
+creamy.entrypoint.CreamyAppクラスを継承して作成します。
 
 ComputerDatabase.java
 ----------------------------
@@ -57,99 +57,72 @@ ComputerDatabase.java
 	    }
 	}
 
+Creamyでは、BrowserというCreamy独自のクラスを利用しています。
+
+Browserは、Webアプリケーションのように、Requestを送り、Responseを受け取り、その結果を表示させるためのCreamyにとっては重要なクラスです。
+
+上記コードの17行目から19行目で、Browserのファミリーである、TabBrowserを作成しています。
+
+詳しくは、:doc:`/basic_concept/browser` を参照してください。 
+
 
 Controllerの書き方
 =============================================
 
-Creamyの規約でControllerのクラスは、Application.javaという名前で作成してください。
-また、このクラスは、creamy.mvc.Controllerクラスを継承する必要があります。
+CreamyのControllerのクラスはcreamy.mvc.Controllerクラスを継承する必要があります。
 
 Application.java
 ---------------------
 
 .. code-block:: java
-	:linenos:
-
-	package controllers;
-
-	import models.Computer;
-	import creamy.mvc.Controller;
-	import models.*;
-	import com.avaje.ebean.*;
-	import creamy.annotation.Bind;
-	import creamy.mvc.Result;
-	import java.util.Date;
-	import javafx.beans.property.SimpleStringProperty;
-	import javafx.beans.property.StringProperty;
 
 	public class Application extends Controller {
 
-	    // home path
-	    private final String HOME = "/Application/list/0/name/asc";
-	    
-	    private Page<Computer> listComputer;
-	    private Computer computer;
-	    private StringProperty order = new SimpleStringProperty();
-	    private StringProperty sortBy = new SimpleStringProperty();
-	    private StringProperty query = new SimpleStringProperty();
 
-	    //GET Aplication/index 
-	    public Result index() {
-	        return redirect(HOME);
-	    }
+Controller内の各メソッドの戻り値は、creamy.mvc.Resultにする必要があります。
 
-	    //GET Aplication/list/:page/:sortBy/:order
-	    public Result list(int page, String sortBy, String order, @Bind(key="filter") String filter) {
-	        this.sortBy.set(sortBy);
-	        this.order.set(order);
-	        this.query.set(filter == null ? "" : filter);
-	        listComputer = Computer.page(page, 10, sortBy, order, query.get());
-	        return ok(this);
-	    }
+Creamyでは、パスで実行されるメソッドが決定されるので、それに即したメソッド名、引数で実装される必要があります。
 
-	    //GET  Aplication/edit/:id
-	    public Result edit(Integer id) {
-	        computer = Computer.find.byId(id);
-	        return ok(this);
-	    }
+.. code-block:: java
 
-	    //GET Aplication/create
-	    public Result create() {
-	        computer = new Computer();
-	        return ok(this);
-	    }
+    //リクエストのパスは　/Aplication/list/:page/:sortBy/:order/:filter
+    public Result list(int page, String sortBy, String order, @Bind(key="filter") String filter) {
+        this.sortBy.set(sortBy);
+        this.order.set(order);
+        this.query.set(filter == null ? "" : filter);
+        listComputer = Computer.page(page, 10, sortBy, order, query.get());
+        return ok(this);
+    }
 
-	    //POST Aplication/update/:id
-	    public Result update(Integer id) {
-	        Computer comp = new Computer();
-	        bind(comp);
-	        comp.update(id);
-	        return redirect(HOME);
-	    }
+詳しくは、:doc:`/development/controllers` を参照してください。
 
-	    //POST Aplication/save
-	    public Result save() {
-	        Computer comp = new Computer();
-	        bind(comp);
-	        comp.save();
-	        return redirect(HOME);
-	    }
 
-	    //POST Aplication/delete/:id
-	    public Result delete(Integer id) {
-	        Computer.find.ref(id).delete();
-	        return redirect(HOME);
-	    }
-	}
+
+.. code-block:: java
+
+    public Result list(int page, String sortBy, String order, @Bind(key="filter") String filter) {
+
+listメソッドの引数にある「@Bind(key="filter")」は、ビューからコントローラを呼び出す際にForm等を利用して、引き渡されたパラメータを取得する為のものです。
+
+ここでは、「filter」というパラメータを取得する事ができます。
+
+詳しくは、:doc:`/development/parameter_binding` を参照してください。
+
 
 Viewの書き方
 =============================================
 
 CreamyのViewでは、javaクラスとそのクラス名と同じfxmlファイルが必要です。
+
 Creamyでは、クラス名.vm.fxmlという名前で作成します。
+
 理由は、Creamyでは、fxmlのコード解析だけではなく、Velocityでの構文も解析しているため、独自にvm.fxmlをいう拡張子を使用します。
+
 Viewのクラスでは、creamy.activity.AvailableActivityクラスを継承する必要があります。
+
 これは、Webでいう、javaScriptのような機能を提供しています。
+
+詳しくは、:doc:`/development/views` を参照してください。
 
 Main.java
 -----------------
@@ -177,6 +150,8 @@ Main.java
 
 Main.vm.fxml
 ------------------
+
+Main.vm.fxmlの35行目の「<!--% #body -->」の部分に、@Template(Main.class)のアノテーションをつけたクラスが挿入されます。
 
 .. code-block:: xml
 	:linenos:
@@ -226,22 +201,14 @@ Main.vm.fxml
 	  </children>
 	</AnchorPane>
 
+
+
 Create.java
 --------------------
 
+Viewでは、大枠にするクラス以外は、「initialize()」メソッド内に表示すべきロジックを記述してください。
+
 .. code-block:: java
-	:linenos:
-
-	package views.application;
-
-	import creamy.activity.AvailableActivity;
-	import creamy.annotation.Template;
-	import creamy.mvc.Request;
-	import java.text.SimpleDateFormat;
-	import javafx.fxml.FXML;
-	import javafx.geometry.Insets;
-	import javafx.scene.layout.StackPane;
-	import models.Company;
 
 	@Template(Main.class)
 	public class Create extends AvailableActivity {
@@ -259,225 +226,13 @@ Create.java
 	                .row(   label("Computer Name:"),
 	                        text("name"),
 	                        label("Required").styleClass(this.validationResult.hasError() ? "err-text" : "guide-text"))
-	                .row(   label("Introduced Date :"),
-	                        text("introduced").format(format),
-	                        label("Date (" + DATE_FORMAT + ")").styleClass("guide-text"))
-	                .row(   label("Discontinued Date :"),
-	                        text("discontinued").format(format),
-	                        label("Date (" + DATE_FORMAT + ")").styleClass("guide-text")    )
-	                .row(   label("Company :"),
-	                        choice("company.id").items(Company.options()).prefWidth(275))
-	                .row(   hbox(submit("Create this computer").styleClass("btn-primary"),
-	                             label(" or "),
-	                             linkbutton("/Application/index").text("Cancel").styleClass("btn"))
-	                        .padding(new Insets(15,0,15,140)).spacing(5)
-	                        .styleClass("actions")
-	                        ,3  )
-	                );
-	    }
-	}
+	                
 
-Create.vm.fxml
--------------------------
-
-.. code-block:: xml
-	:linenos:
-
-	<?xml version="1.0" encoding="UTF-8"?>
-
-	<?import java.lang.*?>
-	<?import javafx.geometry.*?>
-	<?import javafx.scene.*?>
-	<?import javafx.scene.control.*?>
-	<?import javafx.scene.layout.*?>
-
-	<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml" fx:controller="views.application.Create">
-	  <fx:define>
-	    <String fx:id="title" fx:value="Add a Computer" />
-	  </fx:define>
-	  <children>
-	    <GridPane id="gridPane1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-	      <children>
-	        <AnchorPane id="anchorPane1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.valignment="CENTER">
-	          <children>
-	            <Label id="label1" prefHeight="47.0" prefWidth="194.0" styleClass="subtitle" text="Add a computer" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
-	          </children>
-	          <GridPane.margin>
-	            <Insets left="30.0" />
-	          </GridPane.margin>
-	        </AnchorPane>
-	        <AnchorPane id="anchorPane2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-	          <children>
-	            <StackPane id="stackPane1" fx:id="createForm" alignment="TOP_LEFT" prefHeight="484.0" prefWidth="760.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-	              <children>
-	                <HBox id="hBox1" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-	                  <padding>
-	                    <Insets left="20.0" />
-	                  </padding>
-	                </HBox>
-	              </children>
-	            </StackPane>
-	          </children>
-	          <GridPane.margin>
-	            <Insets left="40.0" />
-	          </GridPane.margin>
-	        </AnchorPane>
-	      </children>
-	      <columnConstraints>
-	        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-	      </columnConstraints>
-	      <rowConstraints>
-	        <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
-	        <RowConstraints maxHeight="520.0" minHeight="10.0" prefHeight="466.0" valignment="TOP" vgrow="SOMETIMES" />
-	      </rowConstraints>
-	    </GridPane>
-	  </children>
-	</AnchorPane>
-
-Edit.java
------------------
-
-.. code-block:: java
-	:linenos:
-
-	package views.application;
-
-	import creamy.activity.AvailableActivity;
-	import creamy.annotation.Template;
-	import creamy.mvc.Request;
-	import java.text.SimpleDateFormat;
-	import javafx.fxml.FXML;
-	import javafx.geometry.Insets;
-	import javafx.geometry.Pos;
-	import javafx.scene.layout.StackPane;
-	import models.Company;
-	import models.Computer;
-
-	@Template(Main.class)
-	public class Edit extends AvailableActivity {
-	    
-	    @FXML StackPane editForm;
-	    @FXML StackPane deleteForm;
-
-	    // date formatter
-	    private static final String DATE_FORMAT = "yyyy-MM-dd";
-	    private SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT);    
-	    
-	    //public String title() { return "Edit Computer"; }
-
-	    // data
-	    private Computer computer;
-	    
-	    public void initialize() {
-	        // edit form
-	        editForm.getChildren().add(
-	            gridForm("/Application/update/" + computer.getId()).method(Request.POST).styleClass("grid-form")
-	                .row(   label("Computer Name:"),
-	                        text("name").value(computer.getName()),
-	                        label("Required").styleClass("guide-text")  )
-	                .row(   label("Introduced Date :"),
-	                        text("introduced").format(format).value(computer.getIntroduced()),
-	                        label("Date (" + DATE_FORMAT + ")").styleClass("guide-text")    )
-	                .row(   label("Discontinued Date :"),
-	                        text("discontinued").format(format).value(computer.getDiscontinued()),
-	                        label("Date (" + DATE_FORMAT + ")").styleClass("guide-text")    )
-	                .row(   label("Company :"),
-	                        choice("company.id").items(Company.options()).prefWidth(275)
-	                               .value(computer.getCompany() != null ? computer.getCompany().getId() : null) )
-	                .row(   hbox(submit("Save this computer").styleClass("btn-primary"),
-	                             label(" or "),
-	                             linkbutton("/Application/index").text("Cancel").styleClass("btn"))
-	                        .padding(new Insets(15,0,15,140)).spacing(5)
-	                        .styleClass("actions")
-	                        ,3)
-	                );
-	        // delete from
-	        deleteForm.getChildren().add(
-	             hform("/Application/delete/" + computer.getId()).method(Request.POST).align(Pos.CENTER_RIGHT)
-	                .add(   submit("Delete this computer").styleClass("btn-danger") )
-	                );
-	    }
-	}
-
-Edit.vm.fxml
---------------------
-
-.. code-block:: xml
-	:linenos:
-
-	<?xml version="1.0" encoding="UTF-8"?>
-
-	<?import java.lang.*?>
-	<?import javafx.geometry.*?>
-	<?import javafx.scene.*?>
-	<?import javafx.scene.control.*?>
-	<?import javafx.scene.layout.*?>
-
-	<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml" fx:controller="views.application.Edit">
-	  <fx:define>
-	    <String fx:id="title" fx:value="Edit Computer" />
-	  </fx:define>
-	  <children>
-	    <GridPane id="gridPane1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-	      <children>
-	        <AnchorPane id="anchorPane1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.valignment="CENTER">
-	          <children>
-	            <GridPane id="gridPane2" prefHeight="87.0" prefWidth="770.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-	              <children>
-	                <AnchorPane id="anchorPane3" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-	                  <children>
-	                    <Label id="label1" prefHeight="47.0" prefWidth="541.0" styleClass="subtitle" text="Edit computer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-	                  </children>
-	                </AnchorPane>
-	                <StackPane id="stackPane2" fx:id="deleteForm" alignment="CENTER_RIGHT" prefHeight="107.0" prefWidth="233.0" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="CENTER">
-	                  <padding>
-	                    <Insets right="20.0" />
-	                  </padding>
-	                </StackPane>
-	              </children>
-	              <columnConstraints>
-	                <ColumnConstraints hgrow="SOMETIMES" maxWidth="788.0" minWidth="10.0" prefWidth="694.0" />
-	                <ColumnConstraints hgrow="SOMETIMES" maxWidth="383.0" minWidth="10.0" prefWidth="276.0" />
-	              </columnConstraints>
-	              <rowConstraints>
-	                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-	              </rowConstraints>
-	            </GridPane>
-	          </children>
-	          <GridPane.margin>
-	            <Insets left="30.0" />
-	          </GridPane.margin>
-	        </AnchorPane>
-	        <AnchorPane id="anchorPane2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-	          <children>
-	            <StackPane id="stackPane1" fx:id="editForm" alignment="TOP_LEFT" prefHeight="484.0" prefWidth="760.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-	              <children>
-	                <HBox id="hBox1" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-	                  <padding>
-	                    <Insets left="20.0" />
-	                  </padding>
-	                </HBox>
-	              </children>
-	            </StackPane>
-	          </children>
-	          <GridPane.margin>
-	            <Insets left="40.0" />
-	          </GridPane.margin>
-	        </AnchorPane>
-	      </children>
-	      <columnConstraints>
-	        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-	      </columnConstraints>
-	      <rowConstraints>
-	        <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
-	        <RowConstraints maxHeight="520.0" minHeight="10.0" prefHeight="466.0" valignment="TOP" vgrow="SOMETIMES" />
-	      </rowConstraints>
-	    </GridPane>
-	  </children>
-	</AnchorPane>
 
 List.java
 -----------------
+
+クラス名の最初に、CFとついているクラスは、JavaFxが提供しているクラスをより使いやすいようにCreamy FrameWorkでWrapしたものです。
 
 .. code-block:: java
 	:linenos:
@@ -701,6 +456,9 @@ List.java
 	    }
 	}
 
+List.vm.fxml
+-----------------
+
 .. code-block:: xml
 	:linenos:
 
@@ -831,63 +589,7 @@ Modelの書き方
 Modelは、ebeanをCreamy用にWrapした、creamy.db.Modelクラスを継承してください。
 そうする事で、ebeanで利用できる、O/Rマッパーの機能を利用する事ができます。
 
-Company.java
---------------------
-
-.. code-block:: java
-	:linenos:
-
-	package models;
-
-	import creamy.db.Model;
-	import java.util.LinkedHashMap;
-	import java.util.Map;
-	import javax.persistence.Entity;
-	import javax.persistence.Id;
-	import javax.persistence.Table;
-	import javax.validation.constraints.NotNull;
-
-	/**
-	 * Company entity managed by Ebean
-	 */
-
-	@Entity
-	@Table(name="company")  
-	public class Company extends Model{
-	    
-	    @Id
-	    private Integer id;
-	    
-	    @NotNull
-	    private String name;
-	    
-	    public void setId(Integer id){
-	        this.id = id;
-	    }
-	    public Integer getId(){
-	        return id;
-	    }
-	    public void setName(String name){
-	        this.name = name;
-	    }
-	    public String getName(){
-	    	return name;
-	    }
-
-	    /**
-	     * Generic query helper for entity Company with id Long
-	     */
-	    public static Model.Finder<Long,Company> find = new Model.Finder<>(Long.class, Company.class);
-
-	    public static Map<Integer,String> options() {
-	        LinkedHashMap<Integer,String> options = new LinkedHashMap<>();
-	        for(Company c: Company.find.orderBy("name").findList()) {
-	            options.put(c.id, c.name);
-	        }
-	        return options;
-	    }
-	    
-	}
+アノテーションも、利用できます。
 
 Computer.java
 ---------------------

@@ -110,8 +110,7 @@ JavaFXのUIコントロールは、各々のBuilderクラスを使って生成�
 Creamyはこの仕組みを踏襲し、Creamy UIコントロールとそれに対応するBuilderクラスを作成しました。以下の描画メソッドは、Builderクラスを返すように設計していますので、メソッドチェーンをつなげてCreamy UIコントロールを生成することができます。（一部、Builderクラスがないクラスもあります。）
 記述例は、 `Activity記述例`_ を参照して下さい。
 
-CFGridFormの生成
-******************
+**CFGridFormの生成**
 
 .. code-block:: java
  
@@ -119,12 +118,10 @@ CFGridFormの生成
 
 CFGridFormを生成します。pathには、画面遷移先のパスを指定します。
 
-**記述例**
-
+**記述例：**
 `Activity記述例`_ を参照して下さい。
 
-CFHFormの生成
-******************
+**CFHFormの生成**
 
 .. code-block:: java
  
@@ -142,8 +139,7 @@ CFHFormを生成します。pathには、画面遷移先のパスを指定しま
     hform("/Application/delete/" + computer.getId()).method(Request.POST).align(Pos.CENTER_RIGHT)
  	:
 
-CFVFormの生成
-******************
+**CFVFormの生成**
 
 .. code-block:: java
  
@@ -151,8 +147,7 @@ CFVFormの生成
 
 CFVFormを生成します。pathには、画面遷移先のパスを指定します。
 
-CFLabelの生成
-******************
+**CFLabelの生成**
 
 .. code-block:: java
  
@@ -160,12 +155,10 @@ CFLabelの生成
 
 CFLabelを生成します。textには、表示文字列を指定します。
 
-**記述例**
-
+**記述例：**
 `Activity記述例`_ を参照して下さい。
 
-CFTextFieldの生成
-******************
+**CFTextFieldの生成**
 
 .. code-block:: java
  
@@ -173,12 +166,10 @@ CFTextFieldの生成
 
 CFTextFieldを生成します。nameには、name属性値にあたる文字列を指定します。 
 
-**記述例**
-
+**記述例：**
 `Activity記述例`_ を参照して下さい。
 
-CFChoiceBoxの生成
-******************
+**CFChoiceBoxの生成**
 
 .. code-block:: java
  
@@ -186,12 +177,10 @@ CFChoiceBoxの生成
 
 CFChoiceBoxを生成します。nameには、name属性値にあたる文字列を指定します。
 
-**記述例**
-
+**記述例：**
 `Activity記述例`_ を参照して下さい。
 
-CFButtonの生成
-******************
+**CFButtonの生成**
 
 .. code-block:: java
  
@@ -199,10 +188,7 @@ CFButtonの生成
 
 CFButtonを生成します。nameには、name属性値にあたる文字列を指定します。
 
-**記述例**
-
-CFHyperlinkの生成
-******************
+**CFHyperlinkの生成**
 
 .. code-block:: java
  
@@ -210,10 +196,7 @@ CFHyperlinkの生成
 
 CFHyperlinkを生成します。pathには、画面遷移先のパスを指定します。
 
-**記述例**
-
-CFLinkButtonの生成
-******************
+**CFLinkButtonの生成**
 
 .. code-block:: java
  
@@ -221,12 +204,10 @@ CFLinkButtonの生成
 
 CFLinkButtonを生成します。pathには、画面遷移先のパスを指定します。
 
-**記述例**
-
+**記述例：**
 `Activity記述例`_ を参照して下さい。
 
-CFSubmitButtonの生成
-***********************
+CFSubmitButtonの生成**
 
 .. code-block:: java
  
@@ -234,20 +215,16 @@ CFSubmitButtonの生成
 
 CFSubmitButtonを生成します。pathには、画面遷移先のパスを指定します。
 
-**記述例**
-
+**記述例：**
 `Activity記述例`_ を参照して下さい。
 
-CFAnimationの生成
-******************
+**CFAnimationの生成**
 
 .. code-block:: java
  
     protected CFAnimation animate(Node node)
 
 CFAnimationを生成します。nodeには、animation機能を追加するノードを指定します。
-
-**記述例**
 
 Activity記述例
 *********************

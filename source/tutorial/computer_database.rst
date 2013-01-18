@@ -14,10 +14,30 @@ Computer Databaseは、コンピュータ販売会社、その販売会社が販
 JavaFX開発環境をセットアップする
 =============================================
 
+以下の３つのものをインストールしてください。
+
+#. JavaFX SDK をインストールする。
+#. NetBeansをインストールする。
+#. JavaFX Scene Builderをインストールする
+
+
 くわしい方法は :doc:`/getting_start/set_up` に書かれています。
 
 Creamyプロジェクトの作成
 =============================================
+
+#. NetBeansプロジェクトの新規作成。
+    新規プロジェクトダイアログにて、プロジェクトにJavaFXアプリケーションを選択します。
+#. Creamyのインストール
+    ダウンロードした圧縮ファイルを、任意のディレクトリに解凍して配置します。
+#. 環境変数(Path)への追加
+    Creamyを配置した、場所へのPATHを通します。
+#. コマンドライン操作(bat、shell)によるCreamyプロジェクトに必要なファイルの生成
+
+.. code-block:: shell
+
+	creamy_tools new
+
 
 くわしい方法は :doc:`/getting_start/create_creamy_project` に書かれています。
 

@@ -25,7 +25,10 @@ Creamyでは、デフォルトでSQLiteへの設定がしてあります。
 	datasource.default.isolationlevel=read_uncommitted
 
 
-他のリレーショナルデータベースを利用する場合は、（例えば、PostgreSQL）ebean.propertiesを開き、PostgreSQLにアクセスできるように下記のよう書き換えてください。
+他のリレーショナルデータベースを利用する場合は、（例えば、PostgreSQL）
+
+#. Creamy toolで作成された、lib/の下に、データベースのドライバーを配置し、ライブラリへのパスを通してください。
+#. ebean.propertiesを開き、PostgreSQLにアクセスできるように下記のよう書き換えてください。
 
 
 .. code-block:: java

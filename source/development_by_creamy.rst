@@ -5,10 +5,9 @@ Creamyによる開発
 .. toctree::
    :maxdepth: 2
 
-   development/set_up
-   development/create_creamy_project
-   development/console
-   development/scaffold
+   getting_start/set_up
+   getting_start/create_creamy_project
+   getting_start/scaffold
    development/properties
    development/controllers
    development/models

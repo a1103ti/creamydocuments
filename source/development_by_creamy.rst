@@ -7,7 +7,6 @@ Creamyによる開発
 
    development/set_up
    development/create_creamy_project
-   development/console
    development/scaffold
    development/properties
    development/controllers

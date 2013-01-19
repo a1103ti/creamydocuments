@@ -7,11 +7,27 @@
 =============================================
 Creamyで画面を作成する場合Creamy Browserを使います。小画面も同様です。アプリケーションのベースになる画面（親画面）にボタンやメニューを配置し、そのアクションとして小画面を生成します。
 
-******** もっと書く！！********
+Creamyは、小画面を生成するためのメソッドを提供します。小画面と親画面とのActivityとしての関連を設定したり、ウィンドウの親子関係を設定するなどの細かな処理を隠蔽します。
+
+**小画面生成API**
+
+.. code-block:: java
+
+    public Activity createDialog(String path, Modality modality) 
+    
+第1引数が小画面のパスです。第2引数は小画面のModalityを設定します。Modalityについては、`JavaFX API Documentのjavafx.stage.Modality <http://docs.oracle.com/javafx/2/api/index.html>`_ を参照して下さい。
+生成した小画面インスタンスを返します。
+
+.. code-block:: java
+
+    public static Activity createDialog(Browser ownerBrowser, String path, Modality modality) 
+
+第1引数は親browserのインスタンスです。親browserと小画面の親子関係を設定します。第2引数が小画面のパスです。第3引数は小画面のModalityを設定します。
+生成した小画面インスタンスを返します。
+
 
 記述方法
 =============================================
-Creamyは、小画面を生成するためのメソッドを提供します。小画面と親画面とのActivityとしての関連を設定したり、ウィンドウの親子関係を設定するなどの細かな処理を隠蔽します。
 
 次の例は、アプリケーションメニューに小画面作成のサブメニューを追加したものです。
 

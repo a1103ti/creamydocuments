@@ -33,7 +33,7 @@ Creamyツールのダウンロードは `こちら
 <http://creamy.jp/>`_ のページからできます。
 ダウンロードした圧縮ファイルを、任意のディレクトリに解凍して配置します。
 
-（例）C:\\creamy、/home/user/creamy
+（例）C:￥creamy、/home/user/creamy
 
 
 

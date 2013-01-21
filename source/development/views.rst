@@ -12,36 +12,33 @@ viewsパッケージは、MVCアーキテクチャのViewにあたるもので�
 * イメージファイル
 
 fxmlファイルのcontrollerクラスとしてjavaファイルを作成します。スタイルシートを適用する場合は、同じファイル名でcssファイルを配置します。
-同じ名前でcssファイルを配置しておくことで、スタイルシートの適用処理を記述しなくても自動的に適用されます。
+同じ名前でcssファイルを配置しておくと、スタイルシートの適用処理を記述しなくても自動的に適用されます。
 
 これらのファイルは、viewsパッケージ配下に、Creamyコントローラクラス名をすべて小文字に変換した名前でパッケージを作成し、さらにその配下に配置します。
 
+
 次の例は、新しいコンピュータデータを登録するCreamyアプリケーションのパッケージ構成です。
 
-起動プログラムはchildwindow.TestNewDialogクラスで、Creamyコントローラクラスがcontrollers.NewDialogControllerです。
+起動プログラムはcomputerdatabase.ComputerDatabaseクラスで、Creamyコントローラクラスがcontrollers.Applicationです。
 
-viewsクラスがviews.newdialogcontrollerパッケージに配置されています。
+Activityクラスがviews.applicationパッケージに配置されています。
 
 **パッケージ構成例**
 
-.. image:: views.newdialogcontroller.png
+.. image:: views.application.png
 
-NewComputer.javaとNewComputer.vm.fxmlでコンピュータデータの登録画面を構成しています。
+Create.javaとCreate.vm.fxmlでコンピュータデータの登録画面を構成しています。
 
-SelectCompany.javaとSelectCompany.vm.fmlで、メーカー名の選択画面を構成しています。
+Edit.javaとEdit.vm.fmlで、コンピュータデータの編集画面を構成しています。
 
+List.javaとList.vm.fmlで、コンピュータデータ一覧画面を構成しています。
 
 **画面例**
 
-初期画面では、NewDialog.javaとNewDialog.vm.fxmlで構成するベースの画面に、NewComputer画面を貼付けた形で表示されます。
+初期画面では、Main.javaとMain.vm.fxmlで構成するベースの画面に、List画面を貼付けた形で表示されます。
 
-.. image:: NewComputer.png
-    :width: 500px
-
-「次へ」ボタンをクリックすると、SelectCompany画面に遷移します。
-
-.. image:: SelectCompany.png
-    :width: 500px
+.. image:: ComputerDatabase.png
+    :width: 800px
 
 
 
@@ -50,8 +47,8 @@ SelectCompany.javaとSelectCompany.vm.fmlで、メーカー名の選択画面を
 
 継承すべきクラス
 =============================================
-ここでは、viewsパッケージ以下に配置するjavaクラスを総称して、viewsクラスと呼びます。
-viewsクラスは、AvailableActivityクラスを継承して作成します。
+ここでは、viewsパッケージ以下に配置するjavaクラスを総称して、Activityクラスと呼びます。
+Activityクラスは、AvailableActivityクラスを継承して作成します。
 
 **AvailableActivityクラス**
 
@@ -101,130 +98,11 @@ viewsクラスは、AvailableActivityクラスを継承して作成します。
 
 継承すべきクラスが提供する機能
 =============================================
-AvailableActivityクラスは、画面表示に必要なCreamy UIコントロールの描画メソッドを提供します。
+Activityクラスは、画面表示に必要なFormコントロールの描画メソッドを提供します。
 
-各Creamy UIコントロールの詳細については、`Formコントロール <form_control.html>`_ を参照して下さい。
+各Formコントロールについては、`Formコントロール <form_control.html>`_ を参照して下さい。
 
-JavaFXのUIコントロールは、各々のBuilderクラスを使って生成することができます。Builderクラスのメソッドは自身のBuilderインスタンスを返しますので、メソッドチェーンをつなげてUIコントロールを生成することができます。
-
-Creamyはこの仕組みを踏襲し、Creamy UIコントロールとそれに対応するBuilderクラスを作成しました。以下の描画メソッドは、Builderクラスを返すように設計していますので、メソッドチェーンをつなげてCreamy UIコントロールを生成することができます。（一部、Builderクラスがないクラスもあります。）
-記述例は、 `Activity記述例`_ を参照して下さい。
-
-**CFGridFormの生成**
-
-.. code-block:: java
- 
-    public CFGridForm gridForm(String path)
-
-CFGridFormを生成します。pathには、画面遷移先のパスを指定します。
-
-**記述例：**
-`Activity記述例`_ を参照して下さい。
-
-**CFHFormの生成**
-
-.. code-block:: java
- 
-    public CFHForm hform(String path)
-
-CFHFormを生成します。pathには、画面遷移先のパスを指定します。
-
-**記述例**
-
-次の例では、Applicationコントローラクラスのdeleteメソッドを、コンピュータIDを引数にして実行するpathを指定してCFHFormを生成しています。データ送信メソッドはPOST、CFHFrom内のAlignmentにPos.CENTER_RIGHT（縦方向中央寄せ、横方向右寄せ）を指定しています。
-
-.. code-block:: java
- 
-  deleteForm.getChildren().add(
-    hform("/Application/delete/" + computer.getId()).method(Request.POST).align(Pos.CENTER_RIGHT)
- 	:
-
-**CFVFormの生成**
-
-.. code-block:: java
- 
-    public CFVForm vform(String path)
-
-CFVFormを生成します。pathには、画面遷移先のパスを指定します。
-
-**CFLabelの生成**
-
-.. code-block:: java
- 
-    public LabelBuilder<? extends LabelBuilder> label(String text)
-
-CFLabelを生成します。textには、表示文字列を指定します。
-
-**記述例：**
-`Activity記述例`_ を参照して下さい。
-
-**CFTextFieldの生成**
-
-.. code-block:: java
- 
-    public CFTextFieldBuilder<? extends CFTextFieldBuilder> text(String name)
-
-CFTextFieldを生成します。nameには、name属性値にあたる文字列を指定します。 
-
-**記述例：**
-`Activity記述例`_ を参照して下さい。
-
-**CFChoiceBoxの生成**
-
-.. code-block:: java
- 
-    public CFChoiceBoxBuilder<?, ? extends CFChoiceBoxBuilder> choice(String name)
-
-CFChoiceBoxを生成します。nameには、name属性値にあたる文字列を指定します。
-
-**記述例：**
-`Activity記述例`_ を参照して下さい。
-
-**CFButtonの生成**
-
-.. code-block:: java
- 
-    public CFButtonBuilder<? extends CFButtonBuilder> button(String name)
-
-CFButtonを生成します。nameには、name属性値にあたる文字列を指定します。
-
-**CFHyperlinkの生成**
-
-.. code-block:: java
- 
-    public CFHyperlinkBuilder<? extends CFHyperlinkBuilder> hyperlink(String path)
-
-CFHyperlinkを生成します。pathには、画面遷移先のパスを指定します。
-
-**CFLinkButtonの生成**
-
-.. code-block:: java
- 
-    public CFLinkButtonBuilder<? extends CFLinkButtonBuilder> linkbutton(String path)
-
-CFLinkButtonを生成します。pathには、画面遷移先のパスを指定します。
-
-**記述例：**
-`Activity記述例`_ を参照して下さい。
-
-CFSubmitButtonの生成**
-
-.. code-block:: java
- 
-    public CFSubmitButtonBuilder<? extends CFSubmitButtonBuilder> submit(String text)
-
-CFSubmitButtonを生成します。pathには、画面遷移先のパスを指定します。
-
-**記述例：**
-`Activity記述例`_ を参照して下さい。
-
-**CFAnimationの生成**
-
-.. code-block:: java
- 
-    protected CFAnimation animate(Node node)
-
-CFAnimationを生成します。nodeには、animation機能を追加するノードを指定します。
+描画メソッドについては、`Activityクラスが提供するメソッド <form_control.html#activity>`_ を参照して下さい。
 
 Activity記述例
 *********************
@@ -359,12 +237,7 @@ views.application.Createクラスでは、fx:idの属性値として指定した
 
 起動プログラムはcomputerdatabase.ComputerDatabaseクラスで、Creamyコントローラクラスがcontrollers.Applicationです。
 
-viewsクラスがviews.applicationパッケージに配置されています。
-
-**パッケージ構成例**
-
-.. image:: views.application.png
-
+Activityクラスがviews.applicationパッケージに配置されています。
 
 Creamy独自の記述方法の説明
 =============================================
@@ -373,7 +246,7 @@ Creamyで使用するFXMLファイルには、Velocity構文を記述するこ�
 次は、Velocity構文の render マクロを使った例です。
 renderマクロは、画面描画を部分的に置き換えるときに使います。
 
-**記述例 - NewDialog.vm.fxml**
+**記述例 - CommonPart.vm.fxml**
 
 .. code-block:: html
  :linenos:
@@ -400,6 +273,9 @@ renderマクロは、次のように定義しています。
  #end
 
 上の例の render.vm ファイルは、helpersパッケージに配置します。
+
+★★★画像撮り直し★★★
+******************************
 
 **パッケージ構成例**
 

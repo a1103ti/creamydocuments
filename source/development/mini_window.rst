@@ -13,14 +13,14 @@ Creamyは、小画面を生成するためのメソッドを提供します。�
 
 .. code-block:: java
 
-    public Activity createDialog(String path, Modality modality) 
+    public Activity createWindow(String path, Modality modality) 
     
 第1引数が小画面のパスです。第2引数は小画面のModalityを設定します。Modalityについては、`JavaFX API Documentのjavafx.stage.Modality <http://docs.oracle.com/javafx/2/api/index.html>`_ を参照して下さい。
 生成した小画面インスタンスを返します。
 
 .. code-block:: java
 
-    public static Activity createDialog(Browser ownerBrowser, String path, Modality modality) 
+    public static Activity createWindow(Browser ownerBrowser, String path, Modality modality) 
 
 第1引数は親browserのインスタンスです。親browserと小画面の親子関係を設定します。第2引数が小画面のパスです。第3引数は小画面のModalityを設定します。
 生成した小画面インスタンスを返します。
@@ -41,9 +41,9 @@ Creamyは、小画面を生成するためのメソッドを提供します。�
         item.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                // 新規ダイアログを生成
-                Activity dialog = Activity.createDialog(
-                        browser, "/DialogController/create", Modality.APPLICATION_MODAL);
+                // 新規ウィンドウを生成
+                Activity window = Activity.createWindow(
+                        browser, "/WizardController/create", Modality.APPLICATION_MODAL);
             }
         });
         // 'コンピュータを登録...' メニューを追加
@@ -52,7 +52,7 @@ Creamyは、小画面を生成するためのメソッドを提供します。�
 
 2行目で新しいMenuItemを作成し、そのアクションとしてEventHanderを生成しています。
 
-7、8行目で小画面生成しています。Activity.createメソッドの第１引数は、親browserのインスタンスを渡します。第2引数が小画面のパスです。コントローラクラスがDialogController、初期画面はCreate.java、Create.vm.fxmlファイルで構成されています。第3引数のModality.APPLICATION_MODALは、小画面がクローズするまで親画面を操作させない設定です。
+7、8行目で小画面生成しています。Activity.createWindowメソッドの第１引数は、親browserのインスタンスを渡します。第2引数が小画面のパスです。コントローラクラスがWizardController、初期画面はCreate.java、Create.vm.fxmlファイルで構成されています。第3引数のModality.APPLICATION_MODALは、小画面をクローズするまで親画面を操作させない設定です。
 
 
 **実行例１**
@@ -82,12 +82,12 @@ Creamyは、小画面を生成するためのメソッドを提供します。�
     :linenos:
 
     @FXML private void search(ActionEvent event) {
-        // 検索ダイアログを表示して、Searchなら続行、Cancelなら中断
-        Activity dialog = createDialog("/TestEditableController/search", Modality.NONE);
+        // 検索画面を表示して、Searchなら続行、Cancelなら中断
+        Activity window = createWindow("/EditableController/search", Modality.NONE);
     }
 
 1行目は、Search Computerボタンのアクションメソッドです。
 
 3行目で検索ダイアログを生成しています。第2引数でModality.NONEを指定していますので、検索ダイアログを表示している間も、親画面の操作ができます。
 
-記述例１では、メニューから小画面を作成していましたので、親画面にあたるBrowserのインスタンスを指定しなければいけませんでしがが、記述例２では親画面にボタンが配置されているので、インスタンスを指定する必要がありません。
+記述例１では、メニューから小画面を作成していましたので、親画面にあたるBrowserのインスタンスを指定しなければなりませんでしたが、記述例２では親画面にボタンが配置されているので、インスタンスを指定する必要がありません。

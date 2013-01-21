@@ -97,12 +97,6 @@ VBoxクラスを拡張したLayout Paneです。
 
  public class CFVForm extends VBox implements Form
  
-これらのFormコントロールは、2通りの方法で記述することができます。
-
-１つはActivityクラスが提供するメソッドを使って記述する方法です。詳しくは `継承すべきクラスが提供する機能 <views.html#id3>`_ を参照して下さい。
-
-もう１つは、以下に説明するFXMLファイルに記述する方法です。
-
 提供する機能
 =============================================
 HTMLファイルのformタグ内にinput要素などを記述しておけば、サーバ側でそのinput要素のname属性からvalue値を取得することができます。
@@ -110,8 +104,111 @@ Formコントロールもこの考え方に倣い、name、valueメンバ変数�
 
 例えば、CFSubmitButtonがクリックされたとき、CFHFormに配置されたCFTextFieldのvalue値を、name値をキーに取得できます。画面遷移があるアプリケーションの場合は、そのvalue値が次の画面に自動的にバインドされます。
 
+これらのFormコントロールは、2通りの方法で記述することができます。
 
-記述方法
+**Activityクラスが提供するメソッドを使って記述する方法**
+
+**FXMLファイルに記述する方法**
+
+Activityクラスが提供するメソッド
+=============================================
+Activityクラスは、画面表示に必要なFormコントロールの描画メソッドを提供します。
+
+JavaFXのUIコントロールは、各々のBuilderクラスを使って生成することができます。Builderクラスのメソッドは自身のBuilderインスタンスを返しますので、メソッドチェーンをつなげてUIコントロールを生成することができます。
+
+Creamyはこの仕組みを踏襲し、Formコントロールとそれに対応するBuilderクラスを作成しました。以下の描画メソッドは、Builderクラスを返すように設計していますので、メソッドチェーンをつなげてFormコントロールを生成することができます。（一部、Builderクラスがないクラスもあります。）
+記述例は、 `Activity記述例 <views.html#id3>`_ を参照して下さい。
+
+**CFGridFormの生成**
+
+.. code-block:: java
+ 
+    public CFGridForm gridForm(String path)
+
+CFGridFormを生成します。pathには、画面遷移先のパスを指定します。
+
+**CFHFormの生成**
+
+.. code-block:: java
+ 
+    public CFHForm hform(String path)
+
+CFHFormを生成します。pathには、画面遷移先のパスを指定します。
+
+**CFVFormの生成**
+
+.. code-block:: java
+ 
+    public CFVForm vform(String path)
+
+CFVFormを生成します。pathには、画面遷移先のパスを指定します。
+
+**CFLabelの生成**
+
+.. code-block:: java
+ 
+    public LabelBuilder<? extends LabelBuilder> label(String text)
+
+CFLabelを生成します。textには、表示文字列を指定します。
+
+**CFTextFieldの生成**
+
+.. code-block:: java
+ 
+    public CFTextFieldBuilder<? extends CFTextFieldBuilder> text(String name)
+
+CFTextFieldを生成します。nameには、name属性値にあたる文字列を指定します。 
+
+**CFChoiceBoxの生成**
+
+.. code-block:: java
+ 
+    public CFChoiceBoxBuilder<?, ? extends CFChoiceBoxBuilder> choice(String name)
+
+CFChoiceBoxを生成します。nameには、name属性値にあたる文字列を指定します。
+
+**CFButtonの生成**
+
+.. code-block:: java
+ 
+    public CFButtonBuilder<? extends CFButtonBuilder> button(String name)
+
+CFButtonを生成します。nameには、name属性値にあたる文字列を指定します。
+
+**CFHyperlinkの生成**
+
+.. code-block:: java
+ 
+    public CFHyperlinkBuilder<? extends CFHyperlinkBuilder> hyperlink(String path)
+
+CFHyperlinkを生成します。pathには、画面遷移先のパスを指定します。
+
+**CFLinkButtonの生成**
+
+.. code-block:: java
+ 
+    public CFLinkButtonBuilder<? extends CFLinkButtonBuilder> linkbutton(String path)
+
+CFLinkButtonを生成します。pathには、画面遷移先のパスを指定します。
+
+CFSubmitButtonの生成**
+
+.. code-block:: java
+ 
+    public CFSubmitButtonBuilder<? extends CFSubmitButtonBuilder> submit(String text)
+
+CFSubmitButtonを生成します。pathには、画面遷移先のパスを指定します。
+
+**CFAnimationの生成**
+
+.. code-block:: java
+ 
+    protected CFAnimation animate(Node node)
+
+CFAnimationを生成します。nodeには、animation機能を追加するノードを指定します。
+
+
+FXMLの記述方法
 =============================================
 Formコントロールは、FXMLファイルにタグとして記述することができます。
 

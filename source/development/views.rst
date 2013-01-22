@@ -63,37 +63,18 @@ Activityクラスは、AvailableActivityクラスを継承して作成します�
 
 **記述例**
 
-以下のコードは、AvailableActivityを継承してNewComputerクラスを定義した例です。
-新しいコンピュータデータを登録する画面に対応するクラスです。
+以下のコードは、AvailableActivityを継承してListクラスを定義した例です。
+コンピュータデータ一覧を表示する画面に対応するクラスです。
 
 .. code-block:: java
   :linenos:
 
-  public class NewComputer extends AvailableActivity {
-    
-    @FXML private TextField name;
-    @FXML private TextField intoroduced;
-    @FXML private TextField discontinued;
-    
-    /**
-     * @return コンピュータ名 String
-     */
-    protected String getName() {
-        return name.getText();
-    }
-    /**
-     * @return 発表日 String
-     */
-    protected String getIntoroduced() {
-        return intoroduced.getText();
-    }
-    /**
-     * @return 製造中止日 String
-     */
-    protected String getDiscontinued() {
-        return discontinued.getText();
-    }
-  }
+  @Template(Main.class)
+  public class List extends AvailableActivity {
+
+    // Set page title
+    public String title() { return "Computer-Database"; }
+        :
 
 
 継承すべきクラスが提供する機能
@@ -243,8 +224,8 @@ Creamy独自の記述方法の説明
 =============================================
 Creamyで使用するFXMLファイルには、Velocity構文を記述することが出来ます。FXMLファイルの拡張子が .vm.fxml となっているのは、Velocityのテンプレートとしての役割も持たせているためです。
 
-次は、Velocity構文の render マクロを使った例です。
-renderマクロは、画面描画を部分的に置き換えるときに使います。
+次は、Velocity構文の **#renderマクロ** を使った例です。
+**#renderマクロ** は、画面描画を部分的に置き換えるときに使います。
 
 **記述例 - CommonPart.vm.fxml**
 
@@ -259,9 +240,9 @@ renderマクロは、画面描画を部分的に置き換えるときに使い�
 
 1行目の<ChildPane>要素はCreamy独自のもので、この部分がActivityに置き換わります。
 
-3行目にVelocity構文を記述しています。'<!--%' と '-->' で囲むことで、FXMLとしてはコメントとして認識されます。#renderの引数にはActivityクラス名を指定します。"NewComputer"を指定していますので、NewComputer.java、NewComputer.vm.fxml の実装が必要です。
+3行目にVelocity構文を記述しています。**' <!--% '** と **' --> '** で囲むことで、FXMLとしてはコメントとして認識されます。**#renderマクロ** は１つの引数を取り、Activityクラス名を指定します。この例では "NewComputer" を指定していますので、NewComputer.java、NewComputer.vm.fxml の実装が必要です。
 
-renderマクロは、次のように定義しています。
+**#renderマクロ** は、次のように定義しています。
 
 **記述例 - render.vm**
 
@@ -273,11 +254,4 @@ renderマクロは、次のように定義しています。
  #end
 
 上の例の render.vm ファイルは、helpersパッケージに配置します。
-
-★★★画像撮り直し★★★
-******************************
-
-**パッケージ構成例**
-
-.. image:: helpers.png
 

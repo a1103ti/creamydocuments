@@ -13,7 +13,7 @@ Creamyの画面は、ActivityクラスとFXMLファイルのペアで構成さ�
 
 **実行例 - ComputerDatabase**
 
-.. image:: CD_List.png
+.. image:: layout.CD_List.png
     :width: 500px
 
 上の実行例では、赤い枠内をレイアウトテンプレートを使って作成しています。水色の枠内は、画面遷移によって表示が切り替わる領域です。
@@ -27,7 +27,7 @@ Creamyの画面は、ActivityクラスとFXMLファイルのペアで構成さ�
 
 **パッケージ構成例**
 
-.. image:: Main.vm.png
+.. image:: layout.Main.vm.png
 
 **記述例 - Main.vm.fxml**
 
@@ -89,7 +89,7 @@ Velocity構文のマクロに関しては、`Creamy独自の記述方法の説�
 
 **実行例**
 
-.. image:: AddComputer.png
+.. image:: views.AddComputer.png
     :width: 500px
 
 **記述例 - Create.java**
@@ -104,7 +104,7 @@ Velocity構文のマクロに関しては、`Creamy独自の記述方法の説�
 
 **実行例**
 
-.. image:: CD_Edit.png
+.. image:: layout.CD_Edit.png
     :width: 500px
 
 これも他のActivityクラスと同様に、@Templateアノテーションを記述しています。

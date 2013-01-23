@@ -57,12 +57,12 @@ Creamyは、小画面を生成するためのメソッドを提供します。�
 
 **実行例１**
 
-.. image:: CreateComputerMenu.png
+.. image:: mini.CreateComputerMenu.png
     :width: 300px
 
 メニューから次の小画面を表示します。
 
-.. image:: CreateComputer.png
+.. image:: mini.CreateComputer.png
     :width: 500px
 
 上の例では、Modality.APPLICATION_MODALを指定しましたので、小画面をクローズするまで親画面とデータのやり取りをする必要がありませんでした。しかし、どちらも操作可能な状態でデータをやり取りし、再描画させる場合もあります。
@@ -73,7 +73,7 @@ Creamyは、小画面を生成するためのメソッドを提供します。�
 
 **実行例２**
 
-.. image:: SearchWindow.png
+.. image:: mini.SearchWindow.png
     :width: 500px
 
 **記述例２**

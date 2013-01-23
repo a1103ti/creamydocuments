@@ -216,7 +216,7 @@ Formコントロールは、FXMLファイルにタグとして記述すること
 
 次の画面は、Formコントロールを使って記述しています。
 
-.. image:: CFHForm.png
+.. image:: form.CFHForm.png
     :width: 600px
 
 **記述例① - List.vm.fxml**

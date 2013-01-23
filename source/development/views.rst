@@ -37,7 +37,7 @@ List.javaとList.vm.fmlで、コンピュータデータ一覧画面を構成し
 
 初期画面では、Main.javaとMain.vm.fxmlで構成するベースの画面に、List画面を貼付けた形で表示されます。
 
-.. image:: ComputerDatabase.png
+.. image:: views.ComputerDatabase.png
     :width: 800px
 
 
@@ -214,7 +214,7 @@ views.application.Createクラスでは、fx:idの属性値として指定した
 
 **実行例**
 
-.. image:: AddComputer.png
+.. image:: views.AddComputer.png
 
 起動プログラムはcomputerdatabase.ComputerDatabaseクラスで、Creamyコントローラクラスがcontrollers.Applicationです。
 

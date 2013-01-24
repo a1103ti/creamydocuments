@@ -13,7 +13,7 @@ Creamyの画面は、ActivityクラスとFXMLファイルのペアで構成さ�
 
 **実行例 - ComputerDatabase**
 
-.. image:: CD_List.png
+.. image:: layout.CD_List.png
     :width: 500px
 
 上の実行例では、赤い枠内をレイアウトテンプレートを使って作成しています。水色の枠内は、画面遷移によって表示が切り替わる領域です。
@@ -27,7 +27,7 @@ Creamyの画面は、ActivityクラスとFXMLファイルのペアで構成さ�
 
 **パッケージ構成例**
 
-.. image:: Main.vm.png
+.. image:: layout.Main.vm.png
 
 **記述例 - Main.vm.fxml**
 
@@ -64,19 +64,18 @@ Creamyの画面は、ActivityクラスとFXMLファイルのペアで構成さ�
 
 14〜20行目の<center>は<BorderPane>の中心に配置される要素で、実行例の水色枠にあたります。Computer nameのリンクをクリックしたり、Add a new computerボタンをクリックすると次の画面に遷移しますが、黒い帯のリンクバーは表示されたままです。
 
-17行目にVelocity構文の #body マクロを記述しています。この部分が画面遷移によって書き替わります。
+17行目にVelocity構文で **#bodyマクロ** を記述しています。この部分が画面遷移によって書き替わります。
 Velocity構文のマクロに関しては、`Creamy独自の記述方法の説明 <views.html#creamy>`_  を参照して下さい。
 
-上記の 実行例 - ComputerDatabase は初期画面で、水色枠にはコンピュータ一覧が表示されています。パッケージ構成例にある、List.javaとList.vm.fxmlファイルで構成されています。
+#bodyマクロ
+*******************
 
-コンピュータ一覧のコンピュータ名のリンクをクリックすると、Edit Computer画面に遷移します。これは、パッケージ構成例にある、Edit.javaとEdit.vm.fxmlファイルで構成されています。
+上記の 実行例 - ComputerDatabase は初期画面で、水色枠にはコンピュータ一覧が表示されています。ここを描画しているのが、パッケージ構成例にある、List.javaとList.vm.fxmlファイルです。これらが、初期画面の #bodyマクロ 部分に展開されています。
 
-**実行例**
+@Templateアノテーション
+*******************************
 
-.. image:: CD_Edit.png
-    :width: 500px
-
-レイアウトテンプレートとして機能させるためには、@Templateアノテーションを記述します。
+レイアウトテンプレートを使うためには、Activityクラスに@Templateアノテーションを記述します。次の記述例では、ListクラスにレイアウトテンプレートであるMain.classを指定しています。
 
 **記述例 - List.java**
 
@@ -86,9 +85,29 @@ Velocity構文のマクロに関しては、`Creamy独自の記述方法の説�
  public class List extends AvailableActivity {
      :
 
-1行目のクラス定義の前に@Templateアノテーションを記述しています。引数は、レイアウトテンプレートのクラスである Main.class です。
+上記実行例で Add a new computer ボタンをクリックすると、次の画面に遷移します。Create.javaとCreate.vm.fxmlファイルが #bodyマクロ 部分に展開されています。
 
-レイアウトテンプレートを使うすべてのクラスに@Templateアノテーションの記述が必要です。
+**実行例**
+
+.. image:: views.AddComputer.png
+    :width: 500px
+
+**記述例 - Create.java**
+
+.. code-block:: java
+
+ @Template(Main.class)
+ public class Create extends AvailableActivity {
+     :
+
+更に、コンピュータ一覧のコンピュータ名のリンクをクリックすると、次の画面に遷移します。Edit.javaとEdit.vm.fxmlファイルが #bodyマクロ 部分に展開されています。
+
+**実行例**
+
+.. image:: layout.CD_Edit.png
+    :width: 500px
+
+これも他のActivityクラスと同様に、@Templateアノテーションを記述しています。
 
 **記述例 - Edit.java**
 

@@ -12,9 +12,12 @@ Creamyは、「設定より規約」（convention over configuration）という
 Creamyではモデル、コントローラ、ビューに対応するクラスがあり、
 特にコントローラとビューに関しては命名規約によってその関連が表されています。
 ただし、その命名規約は非常にシンプルです。
-controllers.XXXControllerクラスに対応するのは、views.XXXパッケージ以下のファイルとなり、
-views.XXX以下のYYY.vm.fxmlとYYY.javaはXXXControllerのYYYメソッドと対応します。
 
+- コントローラ名に対応するパッケージをviews以下に配置
+- コントローラメソッドに対応するファイルを上記パッケージ下に配置
+
+
+以下、例を示します。
 
 
 .. csv-table::
@@ -42,7 +45,7 @@ RDBのテーブル名とクラス名、テーブルの列名とフィールド�
 .. csv-table:: 
 
 	"", "RDB", "モデルクラス"
-	"テーブル/モデルクラス名" , "Computer",  "Computer"
+	"テーブル/モデルクラス名" , "computer",  "Computer"
 	"テーブル/モデルクラス名" , "user_info", "UserInfo" 
 	"列/フィールド名", "date", "date"
 	"列/フィールド名", "user_name", "userName"

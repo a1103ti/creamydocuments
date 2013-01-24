@@ -4,11 +4,16 @@
 
 Creamyでは、ビューからコントローラを呼び出す際にForm等を利用してパラメータを
 ポストすることができます。
-ポストされたパラメータはコントローラで以下のように、param変数から参照できます。::
+ポストされたパラメータはコントローラで以下のように、param変数から参照できます。
+
+.. code-block:: java
+	:linenos:
+	
 	public Result update() {
+		//全て個別に値をセットする
 		Computer cp= new Computer();
-	    cp.setName(param("Name"));
-		cp.setMakerName(param("MakerName"))
+		cp.setName(param("Name"));
+		cp.setMakerName(param("MakerName"));
 		cp.update(param("Id"));
 		return ok(this);
 	}
@@ -22,10 +27,15 @@ Creamyでは、ビューからコントローラを呼び出す際にForm等を�
 bindメソッドを利用することで、引数に取ったオブジェクトにパラメータが適用され、
 BindingResultオブジェクトが戻り値として得られます。
 
-利用例を以下に示します。::
+利用例を以下に示します。
+
+.. code-block:: java
+	:linenos:
+	
 	public Result update() {
+		//bindメソッドで一括で値をセットする
 		Computer cp= new Computer();
-	    bind(cp);
+		bind(cp);
 		cp.update(param("Id"));
 		return ok(this);
 	}
@@ -38,11 +48,16 @@ bindメソッドは引数のオブジェクトが持つsetterに対応するパ�
 引数へのパラメータ適用
 ------------------------------
 コントローラメソッドの引数にパラメータを適用するには、
-@Bind(key="key")アノテーションを利用します。
-利用例を以下に示します。::
-	public Result update(@Bind(key="Id") Integer Id) {
+@Bind("Key")アノテーションを利用します。
+利用例を以下に示します。
+
+.. code-block:: java
+	:linenos:
+	
+	//Idパラメータを引数として受け取る
+	public Result update(@Bind("Id") Integer Id) {
 		Computer cp= new Computer();
-	    bind(cp);
+		bind(cp);
 		cp.update(Id);
 		return ok(this);
 	}
@@ -53,20 +68,25 @@ bindメソッドを利用しなくても、引数としてパラメータの適�
 取得することも可能です。
 コントローラメソッドが以下の型以外の引数を取る場合に、bindメソッド適用済みのオブジェクトが取得出来ます。
 
-*int, Integer
-*short, Short
-*long, Long
-*byte, Byte
-*char, Character
-*float, Frolat
-*double, Double
-*Boolean, boolean
-*String
+- int, Integer
+- short, Short
+- long, Long
+- byte, Byte
+- char, Character
+- float, Frolat
+- double, Double
+- Boolean, boolean
+- String
 
 ただし、bindメソッドを利用した場合と異なり、BindingResultは取得できません。
 パラメータ適用時にエラーが発生した場合は、コントローラメソッドは呼び出されません。
-利用例を以下に示します。::
-	public Result update(@Bind(key="Id") Integer Id, Computer cp) {
+利用例を以下に示します。
+
+.. code-block:: java
+	:linenos:
+	
+	//IdとComputerを引数として受け取る
+	public Result update(@Bind("Id") Integer Id, Computer cp) {
 		cp.update(Id);
 		return ok(this);
 	}

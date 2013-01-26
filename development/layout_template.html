@@ -10,8 +10,8 @@
     
     <title>レイアウトテンプレート &mdash; Creamy 0.1 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -22,9 +22,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="Creamy 0.1 documentation" href="../index.html" />
     <link rel="up" title="Creamyによる開発" href="../development_by_creamy.html" />
     <link rel="next" title="部分テンプレート (renderマクロ)" href="render_macro.html" />
@@ -70,7 +70,7 @@
                         title="next chapter">部分テンプレート (renderマクロ)</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/development/layout_template.txt"
+    <li><a href="../sources/development/layout_template.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -103,7 +103,7 @@
 <p>Creamyの画面は、ActivityクラスとFXMLファイルのペアで構成されます。レイアウトテンプレートも、ActivityクラスとFXMLファイルのペアで構成されます。</p>
 <p>レイアウトテンプレートを使うことで、アプリケーションとしての画面の統一性を保つことができます。</p>
 <p><strong>実行例 - ComputerDatabase</strong></p>
-<img alt="../_images/layout.CD_List.png" src="../_images/layout.CD_List.png" style="width: 500px;" />
+<img alt="../images/layout.CD_List.png" src="../images/layout.CD_List.png" style="width: 500px;" />
 <p>上の実行例では、赤い枠内をレイアウトテンプレートを使って作成しています。水色の枠内は、画面遷移によって表示が切り替わる領域です。</p>
 <p>枠外のアドレスバーやタブ、メニューバーは、この画面（Browserクラス）の標準の構成要素です。</p>
 </div>
@@ -111,7 +111,7 @@
 <h2>記述方法<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>この例では、レイアウトテンプレートとしてMain.javaとMain.vm.fxmlを実装しています。</p>
 <p><strong>パッケージ構成例</strong></p>
-<img alt="../_images/layout.Main.vm.png" src="../_images/layout.Main.vm.png" />
+<img alt="../images/layout.Main.vm.png" src="../images/layout.Main.vm.png" />
 <p><strong>記述例 - Main.vm.fxml</strong></p>
 <div class="highlight-html"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -180,7 +180,7 @@ Velocity構文のマクロに関しては、<a class="reference external" href="
 </div>
 <p>上記実行例で Add a new computer ボタンをクリックすると、次の画面に遷移します。Create.javaとCreate.vm.fxmlファイルが #bodyマクロ 部分に展開されています。</p>
 <p><strong>実行例</strong></p>
-<img alt="../_images/views.AddComputer.png" src="../_images/views.AddComputer.png" style="width: 500px;" />
+<img alt="../images/views.AddComputer.png" src="../images/views.AddComputer.png" style="width: 500px;" />
 <p><strong>記述例 - Create.java</strong></p>
 <div class="highlight-java"><div class="highlight"><pre><span class="nd">@Template</span><span class="o">(</span><span class="n">Main</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Create</span> <span class="kd">extends</span> <span class="n">AvailableActivity</span> <span class="o">{</span>
@@ -189,7 +189,7 @@ Velocity構文のマクロに関しては、<a class="reference external" href="
 </div>
 <p>更に、コンピュータ一覧のコンピュータ名のリンクをクリックすると、次の画面に遷移します。Edit.javaとEdit.vm.fxmlファイルが #bodyマクロ 部分に展開されています。</p>
 <p><strong>実行例</strong></p>
-<img alt="../_images/layout.CD_Edit.png" src="../_images/layout.CD_Edit.png" style="width: 500px;" />
+<img alt="../images/layout.CD_Edit.png" src="../images/layout.CD_Edit.png" style="width: 500px;" />
 <p>これも他のActivityクラスと同様に、&#64;Templateアノテーションを記述しています。</p>
 <p><strong>記述例 - Edit.java</strong></p>
 <div class="highlight-java"><div class="highlight"><pre><span class="nd">@Template</span><span class="o">(</span><span class="n">Main</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>

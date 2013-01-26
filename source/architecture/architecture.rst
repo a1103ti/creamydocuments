@@ -13,12 +13,12 @@
 まず、パッケージ構成とJavaFXライブラリ、外部ライブラリとの関連をパッケージ図で見てみましょう。
 
 Creamy パッケージ図
-**********
+*******************************
  
 .. image:: package-diagram.png
 
 javafxとの関連
-----------
+-----------------------
 
 JavaFXにもCreamyにもscene.control、scene.layoutパッケージがあるのが分かりますね？
 
@@ -48,13 +48,13 @@ JavaFXにもCreamyにもscene.control、scene.layoutパッケージがあるの�
 これらのコントロールは、JavaFXのプリミティブコントロール(Hyperlink,TextField,Button,ChoiceBox.../GridPane,VBox,HBox...)を拡張(継承)して作成されています。
 
 com.avaje.ebeanとの関連
-----------
+-------------------------------------------
 creamy.dbからcom.avaje.ebeanへの使用依存があるのが分かります。
 
 creamy.dbにはModelクラスが配置されており、Ebean ORマッパのAPIをラップしているのです。
 
 org.apache.velocityとの関連
-----------
+--------------------------------------------
 creamy.activityからorg.apache.velocityへの使用依存があるのが分かります。
 
 これは、Activityの生成/FXMテンプレートのレンダリングにおいて、Velocityを使用しているためです。

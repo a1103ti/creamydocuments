@@ -38,9 +38,11 @@ Webアプリケーションとの比較
 ここで、WebアプリケーションとCreamyを比較して整理しておきましょう。
 
 * Webアプリケーション
+
 .. image:: mvc-web-figure.png
 
 * Creamyアプリケーション
+
 .. image:: mvc-creamy-figure.png
 
 見て分かる通り、MVCの役割はWebアプリケーションとCreamyで変わりはありません。

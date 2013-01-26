@@ -1,0 +1,191 @@
+================
+チュートリアル
+================
+
+ここでは、Creamyを利用したアプリケーションの作成方法を、特徴的な記述例を挙げながら説明していきます。
+
+次のように構成を変更したらどうでしょうか。
+************************************************************
+
+Overview
+************************************************************
+現時点での記述に追加して、Computer Databaseアプリには次のような機能があることを画面を含めて書く（全部でなくてもいいかも）
+
+**最初の画面だけでなく、遷移後の画面も欲しい**
+  
+1. 最初の画面は、コンピュータデータの一覧を表示している。
+**初期画面**
+
+2. Add a new computerボタンをクリックすると、Add a computer画面に遷移する。
+**登録画面**
+
+3. Computer nameリンクをクリックすると、	Edit computer画面に遷移する。
+4. Filter by computer name… テキストフィールドにコンピュータ名を入力して、Filter by nameボタンをクリックすると、コンピュータ名で絞り込んで一覧表示する。
+
+このうち1と、画面遷移がある2くらいはこの後で作成方法を説明する。
+
+3と4は少し説明がややこしいので。
+
+開発環境のセットアップ
+************************************************************
+リンクを貼って、
+
+1. JavaFX開発環境のセットアップ
+2. Creamyプロジェクトの作成
+
+Scaffoldコマンドを使って基本部分を作る
+************************************************************
+いきなり作るのは難しいので、ツールを使ってアプリケーションのベースを作る。
+便利なツールがあるよ。などと書く。
+
+リンクを貼ってそのまま流用できない部分があれば、説明を付け加える。
+
+画面とソースコードの関係
+************************************************************
+NetBeansのcomputer_databaseプロジェクトの構成を、スクリーンショットを載せてざっと説明する。
+
+**プロジェクト構成の図***
+
+アプリを実行するには、ComputerDatabaseを右クリックして実行する…とか書く。
+
+画面と対比させながら、どの部分がユーザが開発する部分かを説明する。
+
+1. コンピュータ一覧画面は、List.javaとList.vm.fxmlに記述する。
+2. 画面のタイトルバー〜タブ〜アドレスバーは、CreamyのBrowserが提供してくれるので、ユーザは書かなくていい。
+3. Edit computer画面は、Edit.javaとEdit.vm.fxmlでできている。
+
+などなど。。。
+
+`Creamyによる開発 - Views <development/views.html>`_ あたりにも書きました。
+
+コンピュータ一覧画面を作る
+************************************************************
+`Creamyの基本概念 <basic_concept.html>`_ で説明しているように、画面はviewだぞ。という訳で、
+
+Step1 : FXMLファイルを作る
+=============================================
+List.vm.fxml を作ります。
+
+画面レイアウトを作成するにはScene Builderを使うのが便利だけど、残念ながら List.vm.fxml は、Creamy独自の要素を使っているので開けません。
+
+新たにFXMLファイルを作成する場合はScene Builderを使ってレイアウトを決め、その後にCreamy独自の要素をテキストエディタなどのツールを使って組み込むのが良いでしょう。
+
+List.vm.fxml のソースコードの一部を切り取って、貼る。
+
+**実装例**
+
+* fx:controllerのところ・・・JavaFXのコントローラクラスとして、List.javaがある。
+
+*  <TableView fx:id="computerTable" ・・・一覧表示のところ
+
+Step2 :  Activityクラスを実装する
+=============================================
+ListクラスをActivityクラスのサブクラスとして定義します。
+
+`Creamyによる開発 - Views <development/views.html>`_ あたりにも書きました。
+
+initializeメソッドは、画面が表示されたときに実行されるメソッドで、初期状態を記述する。
+
+**実装例**
+
+最初のパスは"/Application/list/"・・・で、Applicationコントロールクラスのlistメソッドを実行するということだよ。
+
+引数の説明も。
+
+次に、List.vm.fxml でソースコートを載せた場所に対応する部分のソースコードを貼る。
+
+**実装例 @FXMLでつながるところ**
+
+Step3 : Controllerクラスを実装する
+=============================================
+Applicationコントローラクラスを、Controllerクラスのサブクラスとして定義する。
+
+`Creamyによる開発 - Controllers <development/controllers.html>`_ あたりを見て下さい。
+
+List.javaのinitializeメソッドで"/Application/list/"・・・を指定したので、listメソッドを実装します。
+
+**実装例 listメソッドのあたり**
+
+引数がある場合は、型を合わせる。
+
+@Bindが使えるが、詳細は＊＊＊を参照して下さい。
+
+このようにパスを指定した場合は、それに対応するメソッドを実装しなければだめ。
+
+Step4 : Modelクラスを実装する
+=============================================
+Computerクラス、Companyクラスは、
+Scaffoldでどこまで出来るんんでしたっけ？
+
+`Creamyによる開発 - Models <development/models.html>`_ あたりを見て下さい。
+
+Step5 : レイアウトテンプレートを実装する
+=============================================
+画面の黒いバーから下の部分は、レイアウトテンプレートを使っています。
+
+Main.java とMain.vm.fxmlが、Listアクティビティを囲んでいるイメージ
+
+`レイアウトテンプレート <development/layout_template.html>`_ を見てくれ！
+
+コンピュータ登録画面を作る
+************************************************************
+Add a new computerボタンをクリックすると、Add a computer画面に遷移する。
+
+**実装例 List.vm.fxmlのボタンがあるところ辺り**
+
+<CFLinkButton>を使って、path="/Application/create"を指定しているので、createメソッドが呼ばれるんですよね。
+
+このCF***は、`Formコントロール <development/form_control.html>`_ に書きました。
+
+Step1 : FXMLファイルを作る
+=============================================
+Create.vm.fxml を作ります。
+
+**実装例 <StackPane id="stackPane1" fx:id="createForm"あたり**
+
+ここに、List.javaとは違う書き方をしていますよ。
+
+
+Step2 :  Activityクラスを実装する
+=============================================
+早速実装例を見て下さい。
+
+**Createクラスのinitiallizaメソッド**
+
+`Creamyによる開発 - Activity記述例 <development/views.html#id4>`_ を見て欲しい。
+
+Step3 : Controllerクラスを実装する
+=============================================
+Applicationコントローラクラスに、createメソッドを実装する。
+
+**実装例 Applicationクラスのcreateメソッド**
+
+ちょっと説明。
+
+こんな感じで作れます。
+
+
+Download
+************************************************************
+
+今回作成したComputerDabaseのサンプルプログラムが、NetBeansプロジェクトとともに以下に置いてあります。
+解凍して、そのままご利用できます。
+http://example.com/download/computer_database.zip
+
+**computer_database.rst １ページだけでは無理だと思いますので、**
+
+**以下は構造を見直した方が良いと思います。**
+
+.. toctree::
+   :maxdepth: 2
+
+   tutorial/orver_view
+   getting_start/set_up
+   getting_start/create_creamy_project
+   getting_start/scaffold
+   tutorial/entry_class
+   tutorial/controllers
+   tutorial/views
+   tutorial/models
+   tutorial/download
+   

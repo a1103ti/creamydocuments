@@ -67,5 +67,4 @@ Windows         		| SDK をインストールした場合:
 	Main.class
 	
 
-詳しくは、 `こちら
-http://docs.oracle.com/javafx/2/deployment/javafxpackager001.htm_` をご覧ください。
+`javafxpackagerを知りたい方はこちらをクリック <http://docs.oracle.com/javafx/2/deployment/javafxpackager001.htm>`_

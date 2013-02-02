@@ -26,7 +26,7 @@ Java FXとは
 * 画面構造と処理が分離されている -> デザイナーと開発者の役割分担が可能
 * Java FXを詳しく知りたい方は http://docs.oracle.com/javafx/index.html を参照してください。
 
-Contens:
+Contents:
 ============
 
 .. toctree::

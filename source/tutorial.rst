@@ -14,5 +14,4 @@
    tutorial/relation_screen_source
    tutorial/create_list_screen
    tutorial/create_gegistration_screen
-   tutorial/download
-   
+   tutorial/download   

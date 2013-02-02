@@ -12,25 +12,17 @@ Creamyって何？
 
 発展の著しい Web アプリケーションの開発手法や考え方を、デスクトップアプリケーションの開発に適用することによる生産性の向上、品質の向上、学習コストの低減するために、Webアプリケーションフレームワークをモチーフとした、JavaFX2.X向けフレームワークです。
 
-Java FXとは
-===================
-
-* JavaFX とは、RIA(Rich Internet Application) の GUI ライブラリ
-* 2007年登場当初は、JavaFX Script という独自のスクリプト言語で、画面構造とその処理の両方を記述する仕組み
-* 2011年、JavaFX 2.0 にて JavaFX Script を廃止、FXML を採用
-* 今までの標準的な GUI ライブラリである Swing の後継
-
-特徴
-------------
+特長
+===========
 
 * 画面構造と処理が分離されている -> デザイナーと開発者の役割分担が可能
 * Java FXを詳しく知りたい方は http://docs.oracle.com/javafx/index.html を参照してください。
 
-Contens:
+Contents:
 ============
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    getting_start
    tutorial

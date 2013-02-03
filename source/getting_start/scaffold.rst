@@ -10,9 +10,9 @@ scaffoldコマンドを実行することにより、フレームワークに必
 
 scaffold [テーブル名] カラム名１:属性名 カラム名２:属性名　・・・
 
-テーブル名およびカラム名には、任意の文字列を指定できます。先頭は英字しか指定できません。
+テーブル名およびカラム名には、任意の文字列を指定できます。先頭は英字を指定します（数字・記号は指定できません）。
 
-属性名には、String、Short、Long、Integer、Double、Float、Charのいずれかしか指定できません。
+属性名には、String、Short、Long、Integer、Double、Floatのいずれかを指定します。
 
 （例）
 
@@ -29,19 +29,28 @@ scaffold [テーブル名] カラム名１:属性名 カラム名２:属性名�
 初期起動画面パスの記述
 =============================================
 main関数の記述されているエントリーポイントクラスのstartメソッドが、以下のように書き換えられています。
-ただ、TabBrowerのコンストラクタに指定するパスは空文字で生成されるので以下の例に従って記述します。
-XXXXXXXの部分は、controllerパッケージ配下に生成されたクラス名を参照して指定します（指定したテーブル名になります）。
 
 .. code-block:: Java
 	:linenos:
 
 	public void start(Stage primaryStage) {
-	    TabBrowser browser = new TabBrowser("/XXXXXXXController/list");	// このパス指定の記述を加える
+	    Browser browser = new Browser("");
 	    browser.setMenuBar(new DefaultBrowserMenuBar());
 	    browser.setHeader(new DefaultHeader());
 	    primaryStage.setScene(browser);
 	    primaryStage.show();
 	}
+
+
+ただ、Browerのコンストラクタに指定するパスは空文字で生成されるので以下の例に従って記述します。
+XXXXXXXの部分は、controllerパッケージ配下に生成されたクラス名を参照して指定します（scaffold実行時に指定したテーブル名になります）。
+
+
+.. code-block:: Java
+	:linenos:
+
+	    Browser browser = new Browser("XXXXXXXController/list");
+
 
 
 完成イメージ
@@ -81,7 +90,7 @@ scaffold実行後のsrcフォルダ配下は以下のようになります。
 
 アプリケーションの実行
 =============================================
-プロジェクトを選択して右クリックし、「生成物を削除して構築」を選択します。コンソールにエラーが出なかかったらビルド成功です。
+プロジェクトを選択して右クリックし、「生成物を削除して構築」を選択します。コンソールにエラーが出なかったらビルド成功です。
 
 .. image:: build.png
 
@@ -93,7 +102,7 @@ scaffold実行後のsrcフォルダ配下は以下のようになります。
 
 
 
-初回実行時なので、CreamyのORマッパーのebeanが、Modelの定義内容からDDLを生成して実行し、DB上にテーブルをcreateしようとします。
+初回実行時なので、CreamyのO/RマッパのEbeanが、Modelの定義内容からDDLを生成して実行し、DB上にテーブルをcreateしようとします。
 しかし、ebeanが生成するDDLは、sqlite3でサポートされていない文法であるAUTOINCLENTを使用しているため、ここでエラーが出ます。
 
 .. code-block:: c
@@ -118,7 +127,7 @@ AUTOINCRENTを、not nullに置き換えます。
 .. image:: notnull.png
 
 
-修正したDDLファイルを再度のDDL生成で上書きしないよう、ebeanの設定ファイルを修正します。
+修正したDDLファイルを再度のDDL生成で上書きしないよう、Ebeanの設定ファイルを修正します。
 
 
 ・\\prop\\ebean.propertiesファイルの修正
@@ -146,7 +155,7 @@ newコマンド実行後、プロジェクトのフォルダ直下に、creamy.s
 
 .. image:: dbfile.png
 
-・ebean.propのddl.run設定に関する注意事項
+・ebean.propertiesのddl.run設定に関する注意事項
 
 
 newコマンド実行後は、DB上に必要なテーブルがcreateされていないため、デフォルトでebean.ddl.runの設定がtrueになっています。

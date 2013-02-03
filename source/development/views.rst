@@ -22,7 +22,7 @@ viewsパッケージは、MVCアーキテクチャのViewにあたるもので�
 **画面例**
 
 .. image:: views.ComputerDatabase.png
-    :width: 800px
+    :width: 600px
 
 継承すべきクラス
 =============================================
@@ -92,15 +92,9 @@ Activity記述例
 
 4行目でCFGridFormを生成しています。Applicationコントローラクラスのsaveメソッドを実行するパスを指定し、データ送信メソッドはPOSTを指定しています。
 
-16行目でCFSubmitButtonを生成しています。これは、HTMLのform要素にsubmitボタンを配置したイメージに相当します。
+16行目でCFSubmitButtonを生成しています。
 
-.. code-block:: java
- :linenos:
-
- private final String HOME = "/Application/list/0/name/asc";
- public Result index() {
-    return redirect(HOME);
- }
+これは、HTMLのform要素にsubmitボタンを配置したイメージに相当します。
 
 FXMLの書き方
 =============================================
@@ -154,6 +148,7 @@ views.application.Createクラスでは、@FXMLアノテーションを付けお
 **実行例**
 
 .. image:: views.AddComputer.png
+    :width: 500px
 
 Creamy独自の記述方法
 =============================================

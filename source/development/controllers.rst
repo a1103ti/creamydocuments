@@ -5,7 +5,7 @@ Controllers
 はじめに
 -------------------
 Creamyのコントローラは他のWebアプリケーションフレームワークで使われるコントローラと同様の意味を持っています。
-また、Creamyではビュー等からPathに対するリクエストという形でコントローラにアクセスするため、
+また、Creamyではビュー等からパスに対するリクエストという形でコントローラにアクセスするため、
 よりWebアプリケーションフレームワークを連想させる使用感となっています。
 
 
@@ -41,29 +41,29 @@ Creamyにおけるコントローラの役割はビューとモデルを仲介�
 	:linenos:
 	
 	public class Application extends Controller {
-	    private Computer computer;
+		private Computer computer;
 	    
-	    //リクエスト先パスは  /Application/show/{ id } になります  --- (1)
-	    public Result show(Integer id) {
-	    	if (id == null) {
-	    		return badRequest(this);   //不正なリクエストとして結果を返す。 ---- (2)
-	    	}
-	        computer = Computer.find.byId(id);
-	        if (computer == null) {
-	        	//redirectTestにリダイレクトします。  ---- (3)
-	            return redirect("/Application/redirectTest");
-	        }
-	        // 正常終了 editに対応するビューが表示される。 ---(4)
-	        // この場合は、/views/application/show.vm.fxmlと
-	        //                    /views/application/show.java       
-	        return ok(this);
-	    }
+		//リクエスト先パスは  /Application/show/{ id } になります  --- (1)
+		public Result show(Integer id) {
+			if (id == null) {
+				return badRequest(this);   //不正なリクエストとして結果を返す。 ---- (2)
+			}
+			computer = Computer.find.byId(id);
+			if (computer == null) {
+				//redirectTestにリダイレクトします。  ---- (3)
+				return redirect("/Application/redirectTest");
+			}
+			// 正常終了 editに対応するビューが表示される。 ---(4)
+			// この場合は、/views/application/show.vm.fxmlと
+			//                    /views/application/show.java       
+			return ok(this);
+		}
 		
 		//( 3)でリダイレクトされた場合呼び出される。
 		public Result redirectTest() {
-	        // 正常終了 redirectTestに対応するビューが表示される。
-	        // この場合は、/views/application/rediretTest.vm.fxmlと
-	        //                    /views/application/rediretTest.java       
+			// 正常終了 redirectTestに対応するビューが表示される。
+			// この場合は、/views/application/rediretTest.vm.fxmlと
+			//                    /views/application/rediretTest.java       
 			return ok(this);
 		}
 	}
@@ -71,19 +71,36 @@ Creamyにおけるコントローラの役割はビューとモデルを仲介�
 - パスで実行されるメソッドが決定します (1)
 	
 	コントローラのメソッド呼び出しは、ビューからのリクエストされたパスで決定されます。
-	パスはWebのURLをイメージして貰えれば問題ありません。
+	パスはWebのURLやファイルパスをイメージしてください。
+	パスとメソッドの対応は "/コントローラ名/メソッド名/パラメータ1/パラメータ2/..." のようになっています。
+	以下、いくつか例を示します。
 	
+	.. csv-table:: 
+
+		"パス", "コントローラ名","シグネチャ"
+		"/Application/show/{ id }", "Application", "public Result show(String id) "
+		"/Application/show/{ id }/{ name }", "Application",  "public Result show(String id, String name)"
+		"/Test/exec", "Test",  "public Result exec()"
 
 - パスで引数を渡します　(1)
 	
-	リクエスト時のパスにメソッドの引数を渡すことが可能です。
+	先に挙げた例のようにリクエスト時のパスにメソッドの引数を渡すことが可能です。
 	また、大量のパラメータを渡す場合など、パスを利用しにくい場合は、
 	ポストすることで別途パラメータを取得出来ます。
 	パスを利用しないパラメータの取得方法は後述します。
 	
 
 - 戻り値をcreamy.mvc.Resultにします  (2) (3) (4)
+	creamy.mvc.Resultを返す際、creamy.mvc.Resultを取得する３つの方法があります。
 
+	.. csv-table:: 
+
+	"メソッド名", "引数","概要"
+	" ok", "Controller or  Activity or Object", ""
+	"badRequest", "Controller or  Activity or Object",  "" 
+	"redirect", "String", ""
+
+	
 	正常終了時はokメソッド、異常なリクエストの場合はbadRequestメソッド、
 	画面遷移が必要な場合はredirectメソッドの戻り値を返してください。
 	
@@ -109,17 +126,17 @@ Creamyにおけるコントローラの役割はビューとモデルを仲介�
 	
 	public class PostTest extends Controller {
 	
-	    //リクエスト先パスは /PostTest/post になります
-	    public Result post() {
-	        //ポストされたパラメータをparam(key)で取得します。
-	    	if (param("id") != null) {
-	    		computer = new Computer(param("Id"));
-	    	} else {
-	    		computer = new Computer();
-	    	}
-	        //正常終了。createに対応するビューが表示されます。
-	        return ok(this);
-	    }
+		//リクエスト先パスは /PostTest/post になります
+		public Result post() {
+			//ポストされたパラメータをparam(key)で取得します。
+			if (param("id") != null) {
+				computer = new Computer(param("Id"));
+			} else {
+				computer = new Computer();
+			}
+			//正常終了。createに対応するビューが表示されます。
+			return ok(this);
+		}
 	}
 
 

@@ -78,9 +78,7 @@ creamy.activityからorg.apache.velocityへの使用依存があるのが分か�
 * View
 
   * UserFXMLがPaneを継承した関係になっています。これは、FXMLのルートノードが通常Paneとなるためです
-  * UserActivityはcreamy.activity.AvairableAcitivtyを継承します。AvairableAcitivtyは親ノードへの参照、子ノードへの
-    参照を保持しており、自由に親、子にアクセスすることができます。
-    また、AvairableActivityには、以下の種類APIが用意されています。
+  * UserActivityはcreamy.activity.AvairableAcitivtyを継承します。AvairableAcitivtyは親ノードへの参照、子ノードへの参照を保持しており、自由に親、子にアクセスすることができます。また、AvairableActivityには、以下の種類APIが用意されています。
       * Form生成のヘルパーメソッド：GridFormの生成、InputTextコントロールの生成など
       * Activity内からRequestを発行するたのめAPI：requestActivity(), requestData()の２つがある
       * アニメーションのヘルパーメソッド：スライドアニメーションなど

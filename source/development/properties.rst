@@ -21,7 +21,7 @@ creamy.propertiesの設定項目は以下の通りです。
 設定ファイル例
 
 
-.. code-block:: java
+.. code-block:: c
 	:linenos:
 	
 		
@@ -59,7 +59,7 @@ ebean.propertiesはCreamyで採用しているORMであるEbeanの設定ファ�
 設定ファイル例（一部省略）
 
 
-.. code-block:: java
+.. code-block:: c
 	:linenos:
 		
 	
@@ -108,7 +108,7 @@ Creamyでは最小限の設定のみが記述されています。
 
 設定ファイル例(デフォルト)
 
-.. code-block:: 
+.. code-block:: c 
 	:linenos:
 		
 	resource.loader = class

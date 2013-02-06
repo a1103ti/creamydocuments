@@ -12,8 +12,7 @@ Creamyを使う場合は、JDK1.7以上のバージョンをインストール�
 
 開発用のPCに、OracleのサイトからJavaFXをダウンロードしてインストールします。
 
-ダウンロードは `こちら
-<http://www.oracle.com/technetwork/java/javafx/downloads/index.html>`_ のページからできます。
+ダウンロードは `こちら <http://www.oracle.com/technetwork/java/javafx/downloads/index.html>`_ のページからできます。
 
 * Oracleのダウンロードサイト
 
@@ -61,8 +60,7 @@ NetBeansを使ったことがない方も、JavaFX、そしてCreamyの利用を
 
 また、Creamyのプロジェクト新規作成やScaffoldのツールは、NetBeans上のプロジェクトを対象として動作します。
 
-ダウンロードは `こちら
-<http://ja.netbeans.org/>`_ のページからできます。
+ダウンロードは `こちら <http://ja.netbeans.org/>`_ のページからできます。
 
 Creamyを使う場合は、7.1以上のバージョンをインストールしてください。
 
@@ -98,8 +96,7 @@ Creamyを利用する上での必須要件ではありませんが、JavaFXを�
 
 JavaFX SDKと同様に、OracleのサイトからJavaFX Scene Builderをダウンロードします。
 
-ダウンロードは `こちら
-<http://www.oracle.com/technetwork/java/javafx/tools/index.html>`_ のページからできます。
+ダウンロードは `こちら <http://www.oracle.com/technetwork/java/javafx/tools/index.html>`_ のページからできます。
 
 * JavaFX Scene Builderのダウンロードサイト
 

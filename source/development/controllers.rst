@@ -10,7 +10,7 @@ Creamyのコントローラは他のWebアプリケーションフレームワ�
 
 
 controllersのディレクトリ内に置くべきファイル
-----------------------------------------
+----------------------------------------------------
 コントローラはcontrollersパッケージの配下にクラスを配置してください。
 コントローラクラスのクラス名はメソッド呼び出し時のパスに利用されるので、
 それを踏まえてクラスを命名してください。
@@ -75,12 +75,12 @@ Creamyにおけるコントローラの役割はビューとモデルを仲介�
 	パスとメソッドの対応は "/コントローラ名/メソッド名/パラメータ1/パラメータ2/..." のようになっています。
 	以下、いくつか例を示します。
 	
-	.. csv-table:: 
+.. csv-table:: 
 
-		"パス", "コントローラ名","シグネチャ"
-		"/Application/show/{ id }", "Application", "public Result show(String id) "
-		"/Application/show/{ id }/{ name }", "Application",  "public Result show(String id, String name)"
-		"/Test/exec", "Test",  "public Result exec()"
+   "パス", "コントローラ名","シグネチャ"
+   "/Application/show/{ id }", "Application", "public Result show(String id) "
+   "/Application/show/{ id }/{ name }", "Application",  "public Result show(String id, String name)"
+   "/Test/exec", "Test",  "public Result exec()"
 
 - パスで引数を渡します　(1)
 	
@@ -93,12 +93,12 @@ Creamyにおけるコントローラの役割はビューとモデルを仲介�
 - 戻り値をcreamy.mvc.Resultにします  (2) (3) (4)
 	creamy.mvc.Resultを返す際、creamy.mvc.Resultを取得する３つの方法があります。
 
-	.. csv-table:: 
+.. csv-table:: 
+   :header: "メソッド名", "引数","概要"
 
-	"メソッド名", "引数","概要"
-	" ok", "Controller or  Activity or Object", ""
-	"badRequest", "Controller or  Activity or Object",  "" 
-	"redirect", "String", ""
+   "ok", "Controller or  Activity or Object", ""
+   "badRequest", "Controller or  Activity or Object",  "" 
+   "redirect", "String", ""
 
 	
 	正常終了時はokメソッド、異常なリクエストの場合はbadRequestメソッド、
@@ -110,12 +110,12 @@ Creamyにおけるコントローラの役割はビューとモデルを仲介�
 	正常終了時はコントローラ、メソッドに対応したビューが自動的に決定され表示されます。
 	基本的には、'views.コントローラ名.メソッド名.vm.fxml'と'views.コントローラ名.メソッド名.java'が
 	対応するビューとなります。
-	規約の詳細については `こちら <../architecture/agreement.html>`_ を参照してください。
+	規約の詳細については :doc:`こちら <../architecture/agreement>` を参照してください。
 
 - パス以外でもパラメータを渡せます
 	
 	フィールド変数paramsを参照することで、Formコントロールからポストされたパラメータを取得できます。
-	Formコントロールについての解説は `こちら <./development/form_control.html>`_ を参照してください。 
+	Formコントロールについての解説は :doc:`こちら <form_control>` を参照してください。 
 	
 以下、簡単な実装例です。
 

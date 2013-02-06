@@ -30,7 +30,7 @@ scaffold [テーブル名] カラム名１:属性名 カラム名２:属性名�
 =============================================
 main関数の記述されているエントリーポイントクラスのstartメソッドが、以下のように書き換えられています。
 
-.. code-block:: Java
+.. code-block:: java
 	:linenos:
 
 	public void start(Stage primaryStage) {
@@ -46,7 +46,7 @@ main関数の記述されているエントリーポイントクラスのstart�
 XXXXXXXの部分は、controllerパッケージ配下に生成されたクラス名を参照して指定します（scaffold実行時に指定したテーブル名になります）。
 
 
-.. code-block:: Java
+.. code-block:: java
 	:linenos:
 
 	    Browser browser = new Browser("XXXXXXXController/list");

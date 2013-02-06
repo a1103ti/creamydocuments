@@ -12,6 +12,9 @@ Creamyって何？
 
 発展の著しい Web アプリケーションの開発手法や考え方を、デスクトップアプリケーションの開発に適用することによる生産性の向上、品質の向上、学習コストの低減するために、Webアプリケーションフレームワークをモチーフとした、JavaFX2.X向けフレームワークです。
 
+
+:download:`このサンプルスクリプト <./test/ebean-2.7.3.jar>` を参照してください
+
 特長
 ===========
 
@@ -39,4 +42,5 @@ Contents:
    basic_concept
    architecture
    development_by_creamy
+   download
    licence

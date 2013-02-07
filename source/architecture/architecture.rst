@@ -43,15 +43,15 @@ JavaFXにもCreamyにもscene.control、scene.layoutパッケージがあるの�
 
 つまり、creamy.scene.cntrolには、Formに関連するInputコントロールと、Hyperlink等のページ遷移に関連するコントロールが配置されているということです。
 
-また、creamy.scene.layoutには、レイアウト形式に応じたFormが配置されているとうことです。
+また、creamy.scene.layoutには、レイアウト形式に応じたFormが配置されているということです。
 
-これらのコントロールは、JavaFXのプリミティブコントロール(Hyperlink,TextField,Button,ChoiceBox.../GridPane,VBox,HBox...)を拡張(継承)して作成されています。
+これらのコントロールは、JavaFX標準のコントロール(Hyperlink,TextField,Button,ChoiceBox.../GridPane,VBox,HBox...)を拡張(継承)して作成されています。
 
 com.avaje.ebeanとの関連
 -------------------------------------------
 creamy.dbからcom.avaje.ebeanへの使用依存があるのが分かります。
 
-creamy.dbにはModelクラスが配置されており、Ebean ORマッパのAPIをラップしているのです。
+creamy.dbにはModelクラスが配置されており、Ebean O/RマッパのAPIをラップしているのです。
 
 org.apache.velocityとの関連
 --------------------------------------------

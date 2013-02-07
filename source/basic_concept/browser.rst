@@ -17,6 +17,7 @@ Browserは、CreamyアプリケーションのUIを表示するためのCreamy�
 以下に概念図をまとめます。
 
 .. image:: browser-concept-figure.png
+    :width: 600px
 
 
 Browserの概観
@@ -30,7 +31,7 @@ BrowserはCreamyのコンポーネントでありJavaクラスです。以下に
   * デフォルトではCloseメニューだけが用意されています
   * 表示/非表示を選択することができます
 
-**ヘダー**
+**ヘッダ**
   * 「戻る/進む」ボタンが提供されます。動作は一般的なWeb Browserと同じです
   * 表示/非表示を選択することができます
 
@@ -65,5 +66,5 @@ BrowserはResponseを受信すると、そのボディにある、Scene Graphオ
 **********************
 ページ遷移の履歴はBrowserによって自動的に管理されます。
 
-開発者はヘダー領域にBackButton、Forwardボタンを配置するだけで、Back/Forwardの機能を実現することができます。
+開発者はヘッダ領域にBackButton、Forwardボタンを配置するだけで、Back/Forwardの機能を実現することができます。
 

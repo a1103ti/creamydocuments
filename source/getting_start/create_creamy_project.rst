@@ -16,8 +16,7 @@ Creamyのインストール
 =============================================
 
 Creamyは、NetBeans上に作成したプロジェクトに対して、Creamyツール（creamy_tools）を実行することによってインストールします。
-Creamyツールのダウンロードは `こちら
-<http://creamy.jp/>`_ のページからできます。
+Creamyツールは、:download:`こちら <../_downloads/creamy_tools.zip>` からダウンロードしてください。
 ダウンロードした圧縮ファイルを、任意のディレクトリに解凍して配置します。
 
 （例）C:￥creamy、/home/user/creamy
@@ -37,9 +36,6 @@ Creamyツールのインストールの後は、インストールディレク�
 
 .. image:: path.PNG
 
-・Macの場合
-
-※TBD
 
 
 

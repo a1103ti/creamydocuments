@@ -6,10 +6,16 @@ Creamyで作成されたApplicationの実行可能JAR作成方法
 
 .. code-block:: c
 
+   // buildしたclassesがある場所に移動します。
    cd ./computer_database/build/
   
-   javafxpackager -createjar -appclass computerdatabase.ComputerDatabase.class -srcdir classes -classpath ../lib/jfxrt.jar:../lib/creamy.jar:../lib/ebean-2.7.3.jar:../lib/hibernate-validator-4.3.0.Final.jar:../lib/javax.validation-1.0.0.GA.jar:../lib/jsonic-1.2.11.jar:../lib/persistence-api-1.0.jar:../lib/sqlite-jdbc-3.7.2.jar:../lib/velocity-1.7-dep.jar:../lib/velocity-1.7.jar -nocss2bin -outdir ../dist -outfile comp_data
+   // javafxpackagerでjarを作成します。その際依存するjarがある場合は、--classpathで指定してください。
+   javafxpackager -createjar -appclass computerdatabase.ComputerDatabase.class -srcdir classes -classpath ../lib/jfxrt.jar:
+      ../lib/creamy.jar:../lib/ebean-2.7.3.jar:../lib/hibernate-validator-4.3.0.Final.jar:../lib/javax.validation-1.0.0.GA.jar:
+      ../lib/jsonic-1.2.11.jar:../lib/persistence-api-1.0.jar:../lib/sqlite-jdbc-3.7.2.jar:../lib/velocity-1.7-dep.jar:
+      ../lib/velocity-1.7.jar -nocss2bin -outdir ../dist -outfile comp_data
  
+  　// jar実行コマンドで実行します。
    java -jar ../dist/comp_data.jar
 
 このコマンドの解説していきます。

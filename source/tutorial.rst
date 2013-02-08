@@ -87,6 +87,7 @@ newprojesample.NewProjeSampleクラスの、Browserコンストラクタの引�
 **実行例**
 
 .. image:: tutorial.Step1.png
+    :width: 600px
 
 **データ登録**
 
@@ -97,6 +98,7 @@ New Computer リンクをクリックして、登録画面に遷移させます�
 **登録画面**
 
 .. image:: tutorial.Step2.png
+    :width: 600px
 
 Name、Company_name、Introduced（yyyy-mm-dd形式）を入力して Create Computer ボタンをクリックします。
 
@@ -105,6 +107,7 @@ Name、Company_name、Introduced（yyyy-mm-dd形式）を入力して Create Com
 **登録結果画面**
 
 .. image:: tutorial.Step3.png
+    :width: 600px
 
 次のステップで日付データを扱えるようにプログラムを修正していきましょう。
 
@@ -137,6 +140,7 @@ Search.vm.fxmlファイルは、Scene Builderで開くことができます。
 **Scene Builder実行例**
 
 .. image:: tutorial.Step4.png
+    :width: 600px
 
 
 検索画面を呼び出す
@@ -191,6 +195,7 @@ ComputerControllerクラスに、以下のsearchメソッドを実装します�
 **検索画面表示例**
 
 .. image:: tutorial.Step5.png
+    :width: 600px
 
 次に、検索処理を実装しましょう。
 
@@ -213,7 +218,7 @@ Searchボタン、Cancelボタンの処理を実装
     </children>
   </HBox>
 
-handleCancelActionメソッドとhandleSearchActionメソッドは、ダウンロードしたSearch.javaファイルに実装済みです。
+handleCancelActionメソッドとhandleSearchActionメソッドは、ダウンロードしたSearch.javaファイルに実装済みです。検索処理をListクラスに実行させるために、7行目のコメントを外してください。
 
 .. code-block:: java
     :linenos:
@@ -299,3 +304,4 @@ List.javaには、以下のメソッドを実装してください。
 **検索結果画面例**
 
 .. image:: tutorial.Step6.png
+    :width: 600px

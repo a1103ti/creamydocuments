@@ -1,143 +1,49 @@
-=============================================
-Creamyのデプロイ方法
-=============================================
+===========================================================
+Creamyで作成されたApplicationの実行可能JAR作成方法
+===========================================================
 
 使用方法: 
 
 .. code-block:: c
 
-   javafxpackager -command [-options]
+   // buildしたclassesがある場所に移動します。
+   cd ./computer_database/build/
+  
+   // javafxpackagerでjarを作成します。その際依存するjarがある場合は、--classpathで指定してください。
+   javafxpackager -createjar -appclass computerdatabase.ComputerDatabase.class -srcdir classes -classpath ../lib/jfxrt.jar:
+      ../lib/creamy.jar:../lib/ebean-2.7.3.jar:../lib/hibernate-validator-4.3.0.Final.jar:../lib/javax.validation-1.0.0.GA.jar:
+      ../lib/jsonic-1.2.11.jar:../lib/persistence-api-1.0.jar:../lib/sqlite-jdbc-3.7.2.jar:../lib/velocity-1.7-dep.jar:
+      ../lib/velocity-1.7.jar -nocss2bin -outdir ../dist -outfile comp_data
+ 
+  　// jar実行コマンドで実行します。
+   java -jar ../dist/comp_data.jar
 
-このコマンドは次のいずれかです。
+このコマンドの解説していきます。
 -------------------------------------- 
 
 ===============  =======================================================================================
   -createjar     パッケージャは、その他のパラメータに従ってjarアーカイブを生成します。 
-  -deploy        パッケージャは、その他のパラメータに従って、jnlpファイルとhtmlファイルを生成します。
-  -createbss     cssファイルをバイナリ形式に変換します 
-  -signJar       指定された証明書でjarファイルに署名します。
-  -makeall       | 事前定義された引数の大半を使用して、コンパイル、jarの作成、デプロイの 
-                 | ステップを1回の呼出しで実行します。ソースは"src"フォルダに存在する
-                 | 必要があり、生成されたファイル(jar、jnlp、html)は"dist"フォルダに
-                 | 出力されます。このコマンドは最小限の構成のみが可能で、可能な限り
-                 | 自動化することができます。
 ===============  =======================================================================================
 
 createjarコマンドのオプションは次のとおりです。
 ------------------------------------------------------------
  
-========================================= =======================================================================
-  -appclass <application class>           実行するアプリケーション・クラスの修飾名。
-  -preloader <preloader class>            実行するプリローダー・クラスの修飾名。
-  -paramfile <file>                       デフォルトの名前付きアプリケーション・パラメータが含まれるプロパティ・ファイル。
-  -argument arg                           JNLPファイル内の<fx:argument>要素に設定する名前なしの引数。
-  -classpath <files>                      依存するjarファイルの名前のリスト。
-  -manifestAttrs <manifest attributes>    追加のマニフェスト属性のリスト。構文: "name1=value1,name2=value2,name3=value3
-  -noembedlauncher                        指定した場合、パッケージャは、jarファイルにJavaFX起動クラスを追加しません。
-  -nocss2bin                              パッケージャは、CSSファイルをバイナリ形式に変換せずにjarにコピーします。 
-  -runtimeversion <version>               JavaFXランタイムの必須バージョン。
-  -outdir <dir>                           出力ファイルが生成されるディレクトリの名前。
-  -outfile <filename>                     生成されるファイルの(拡張子なしの)名前。
-  -srcdir <dir>                           パッケージ化するファイルのベース・ディレクトリ。
-  -srcfiles <files>                       srcdir内のファイルのリスト。省略した場合は、srcdir内のすべてのファイルがパッケージ化されます。
-========================================= =======================================================================
 
-deployコマンドのオプションは次のとおりです。
------------------------------------------------------
+========================================= =======================================================================================================================
+  -appclass <application class>           | 実行するアプリケーション・クラスの修飾名。
+  -classpath <files>                      | 依存するjarファイルの名前のリスト。(jfxrt.jarとcreamy.jarは必須です。）
+					                                | jfxrt.jarは
+                                          | Windowsの場合は、C:\¥Program Files\¥Java\¥jdk1.7.x\¥jre\¥lib\¥jfxrt.jar
+                                          | Macの場合は、/Library/Java/JavaVirtualMachines/jdk1.7.0_xx.jdk/Contents/Home/jre/lib/jfxrt.jar
+					                                | にあります。
+                                          | 複数ある場合は、Windowsは「セミコロン」、Macは「コロン」で繋げて記述します。
+  -nocss2bin                              | パッケージャは、CSSファイルをバイナリ形式に変換せずにjarにコピーします。
+                                          | (CSSを利用している場合は、こちらを指定してください。) 
+  -outdir <dir>                           | 出力ファイルが生成されるディレクトリの名前。
+  -outfile <filename>                     | 生成されるファイルの(拡張子なしの)名前。
+  -srcdir <dir>                           | パッケージ化するファイルのベース・ディレクトリ。
+  -srcfiles <files>                       | srcdir内のファイルのリスト。省略した場合は、srcdir内のすべてのファイルがパッケージ化されます。
+========================================= =======================================================================================================================
 
-========================================= =======================================================================
-  -title <title>                          アプリケーションのタイトル。
-  -vendor <vendor>                        アプリケーションのベンダー。
-  -description <description>              アプリケーションの説明。
-  -appclass <application class>           実行するアプリケーション・クラスの修飾名。
-  -preloader <preloader class>            実行するプリローダー・クラスの修飾名。
-  -paramfile <file>                       デフォルトの名前付きアプリケーション・パラメータが含まれるプロパティ・ファイル。
-  -htmlparamfile <file>                   生成されるアプレット用のパラメータが含まれるプロパティ・ファイル。
-  -width <width>                          アプリケーションの幅。
-  -height <height>                        アプリケーションの高さ。
-  -native <name>                          プラットフォーム固有のネイティブ・バンドルを生成します(可能な場合)。
-  -name <name>                            アプリケーションの名前。
-  -embedjnlp                              指定した場合、htmlドキュメントにjnlpファイルが埋め込まれます。
-  -embedCertificates                      指定した場合、jnlpファイルに証明書が埋め込まれます。
-  -allpermissions                         | 指定した場合、そのアプリケーションは、jnlpファイル内のすべての
-                                          | セキュリティ権限を必要とするようになります。
-  -updatemode <updatemode>                jnlpファイルの更新モードを設定します。
-  -isExtension                            指定した場合、srcfilesは拡張ファイルとして処理されます。
-  -callbacks                              | 生成後のHTMLでのユーザー・コールバック方式を指定します。
-                                          | 形式は"name1:value1,name2:value2,..."です
-  -templateInFilename                     | HTMLテンプレート・ファイルの名前。プレースホルダの形式は次のとおりです。
-                                          | #XXXX.YYYY(APPID)#
-  -templateOutFilename                    | 入力済みテンプレートが書き込まれるhtmlファイルの名前。
-  -templateId                             テンプレート処理を行うアプリケーションのアプリケーションID。
-  -argument argument                      | JNLPファイル内の<fx:argument>要素に設定する名前なしの
-                                          | 引数。
-  -outdir <dir>                           出力ファイルが生成されるディレクトリの名前。
-  -outfile <filename>                     生成されるファイルの(拡張子なしの)名前。
-  -srcdir <dir>                           パッケージ化するファイルのベース・ディレクトリ。
-  -srcfiles <files>                       | srcdir内のファイルのリスト。省略した場合は、srcdir内の
-                                          | すべてのファイルがパッケージ化されます。
-========================================= =======================================================================
-
-createbssコマンドのオプションは次のとおりです。
------------------------------------------------------------
-
-========================================= =======================================================================
-  -outdir <dir>                           出力ファイルが生成されるディレクトリの名前。
-  -srcdir <dir>                           パッケージ化するファイルのベース・ディレクトリ。
-  -srcfiles <files>                       | srcdir内のファイルのリスト。省略した場合は、srcdir内の
-                                          | すべてのファイルがパッケージ化されます。
-========================================= =======================================================================
-
-signJarコマンドのオプションは次のとおりです。
------------------------------------------------------------
-
-========================================= =======================================================================
-  -keyStore <file>                        キーストア・ファイル名。
-  -alias                                  キーの別名。
-  -storePass                              キーストアの整合性を確認したり、ロックを解除するためのパスワード。
-  -keyPass                                キーを復元するためのパスワード。
-  -storeType                              キーストアのタイプ。デフォルト値は"jks"です。
-  -outdir <dir>                           出力ファイルが生成されるディレクトリの名前。
-  -srcdir <dir>                           署名するファイルのベース・ディレクトリ。
-  -srcfiles <files>                       | srcdir内のファイルのリスト。省略した場合は、srcdir内の
-                                          | すべてのファイルに署名されます。
-========================================= =======================================================================
-
-makeAllコマンドのオプションは次のとおりです。
------------------------------------------------------------
-
-========================================= =======================================================================
-  -appclass <application class>           実行するアプリケーション・クラスの修飾名。
-  -preloader <preloader class>            実行するプリローダー・クラスの修飾名。
-  -classpath <files>                      依存するjarファイルの名前のリスト。
-  -name <name>                            アプリケーションの名前。
-  -width <width>                          アプリケーションの幅。
-  -height <height>                        アプリケーションの高さ。
-  -v                                      詳細な出力を有効にします。
-========================================= =======================================================================
-
-使用例:
---------------
-
-.. code-block:: c
- 
-  javafxpackager -createjar -appclass package.class  
-    -srcdir classes -outdir out -outfile outjar -v
-            classesディレクトリの中身をoutjar.jarにパッケージ化し、
-            アプリケーション・クラスをpackage.classに設定します。
-
-  javafxpackager -deploy -outdir outdir -outfile outfile -width 34 -height 43 
-    -name AppName -appclass package.class -v -srcdir compiled
-            アプリケーションAppNameのoutfile.jnlpとそれに対応する 
-            outfile.htmlファイルをoutdirに生成します。このアプリケーションは、
-            package.classクラスで始まり、34x43の配列を持ちます。
-
-  javafxpackager -makeall -appclass brickbreaker.Main -name BrickBreaker
-    -width 600 -height 600
-            このコマンドは、コンパイルを含むすべてのパッケージ化処理 
-            (コンパイル、Jarの作成、デプロイ)を実行します。
-
-
-	
 
 `javafxpackagerを知りたい方はこちらをクリック <http://docs.oracle.com/javafx/2/deployment/javafxpackager001.htm>`_

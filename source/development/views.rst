@@ -31,22 +31,22 @@ Activityクラスは、AvailableActivityクラスを継承して作成します�
 **AvailableActivityクラス**
 
 .. code-block:: java
-  :linenos:
+   :linenos:
  
-  public class AvailableActivity extends Activity implements Available {
-    @Override
-    public void initialize() {}
+   public class AvailableActivity extends Activity implements Available {
+     @Override
+     public void initialize() {}
  
-  }
+   }
 
 initializeメソッドに画面の描画コードを記述します。
 
 .. code-block:: java
-  :linenos:
+   :linenos:
 
- public class List extends AvailableActivity {
+   public class List extends AvailableActivity {
  
- }
+   } 
  
 継承すべきクラスが提供する機能
 =============================================

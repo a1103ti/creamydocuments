@@ -4,7 +4,10 @@ scaffoldによるアプリケーション作成
 
 scaffoldコマンドの実行
 =============================================
+
 scaffoldコマンドを実行することにより、フレームワークに必要なMVCの各要素を生成します。
+
+(scaffoldは、アプリケーション開発の足場を作成することです。)
 
 対象のプロジェクトのフォルダに移動し、テーブル名やそのカラム名、属性名を指定しながらscaffoldコマンドを実行します。コマンドの文法は以下の通りです。
 
@@ -28,9 +31,10 @@ scaffold [テーブル名] カラム名１:属性名 カラム名２:属性名�
 
 初期起動画面パスの記述
 =============================================
+
 main関数の記述されているエントリーポイントクラスのstartメソッドが、以下のように書き換えられています。
 
-.. code-block:: Java
+.. code-block:: java
 	:linenos:
 
 	public void start(Stage primaryStage) {
@@ -46,7 +50,7 @@ main関数の記述されているエントリーポイントクラスのstart�
 XXXXXXXの部分は、controllerパッケージ配下に生成されたクラス名を参照して指定します（scaffold実行時に指定したテーブル名になります）。
 
 
-.. code-block:: Java
+.. code-block:: java
 	:linenos:
 
 	    Browser browser = new Browser("XXXXXXXController/list");
@@ -55,6 +59,7 @@ XXXXXXXの部分は、controllerパッケージ配下に生成されたクラス
 
 完成イメージ
 =============================================
+
 scaffold実行後のsrcフォルダ配下は以下のようになります。
 
 .. code-block:: c
@@ -64,13 +69,13 @@ scaffold実行後のsrcフォルダ配下は以下のようになります。
 		　│  ・・・
 		　└─src
 		    ├─controllers
-		    │      CompanyController.java　・・・"Company"の部分は指定したテーブル名になる。
+		    │      CompanyController.java　・・・"Company"の部分はscaffold実行時に指定したテーブル名になる。
 		    │      
 		    ├─helpers
 		    │      render.vm
 		    │      
 		    ├─models
-		    │      Company.java　・・・"Company"の部分は指定したテーブル名になる。
+		    │      Company.java　・・・"Company"の部分はscaffold実行時に指定したテーブル名になる。
 		    │      
 		    ├─newprojsample　・・・NetBeans上作成されたパッケージ名（プロジェクト名と同じ）になる。
 		    │      NewProjSample.java　・・・エントリーポイントクラス。初期起動画面パスの記述の修正が必要。
@@ -90,6 +95,7 @@ scaffold実行後のsrcフォルダ配下は以下のようになります。
 
 アプリケーションの実行
 =============================================
+
 プロジェクトを選択して右クリックし、「生成物を削除して構築」を選択します。コンソールにエラーが出なかったらビルド成功です。
 
 .. image:: build.png

@@ -146,6 +146,30 @@ SimpleDateFormatで指定している通り、Introduced値にはyyyy-MM-dd形�
 .. image:: tutorial.Step7.png
     :width: 600px
 
+登録ができましたので、次に表示を修正しましょう。
+
+次のファイルはList.vm.fxmlファイルの一部で、Velocityの構文を使って一覧表示の部分を記述しています。
+
+.. code-block:: xml
+ :linenos:
+ 
+ <!--%
+ #set( $i = 1 )
+ #foreach( $computer in $listOfComputer )
+ <Label text="$!computer.name" GridPane.columnIndex="0" GridPane.rowIndex="$i" />
+ <Label text="$!computer.company_name" GridPane.columnIndex="1" GridPane.rowIndex="$i" />
+ <Label text="$!computer.introduced" GridPane.columnIndex="2" GridPane.rowIndex="$i" />
+
+上記6行目を以下のように修正してください。
+
+.. code-block:: xml
+ :linenos:
+ 
+ #if( $computer.introduced )
+ <Label text="$formatter.format($!computer.introduced)" GridPane.columnIndex="2" GridPane.rowIndex="$i" />
+ #else
+ <Label text="" GridPane.columnIndex="2" GridPane.rowIndex="$i" />
+ #end
 
 
 検索画面を作る

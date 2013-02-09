@@ -2,9 +2,15 @@
 Creamyを使ってみよう
 ====================
 
+<<<<<<< HEAD
 CreamyはJavaFX向けのアプリケーションフレームワークのため、JavaFXの利用を前提とします。
 そのため、JavaFXの開発環境をセットアップする必要があります。
 JavaFXの開発環境は、JavaFX SDK、NetBeans、JavaFX Scene Builderから構成されます。
+=======
+CreamyはJavaFX向けのアプリケーションフレームワークであり、JavaFXの利用を前提とします。
+そのため、JavaFXの開発環境をセットアップする必要があります。
+JavaFXの重要な開発環境は、JavaFX SDK、NetBeans、JavaFX Scene Builderから構成されます。
+>>>>>>> pages-work
 
 .. toctree::
    :maxdepth: 2

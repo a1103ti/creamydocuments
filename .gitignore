@@ -1,7 +1,0 @@
-#
-
-#デプロイファイルは、developer用に変更させない為に無視
-git_deploy.sh
-
-#buildフォルダ以下は、無視
-build/*

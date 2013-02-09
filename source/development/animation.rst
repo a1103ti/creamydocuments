@@ -5,17 +5,24 @@
 
 CreamyのEffect/Animation機能は、jQuery UIを参考に作成しています。
 
-Effects/Toggle/Hide/showの4種類があります。
-
 提供する機能
 =============================================
-* Effects : 対象のノードに指定したアニメーションを動作させます。
+Effects/Toggle/Hide/showの4種類があります。
 
-* show : 指定したアニメーションを動作させながらノードを表示します。
-
-* Hide : 指定したアニメーションを動作させながらノードを非表示します。
-
-* Toggle : 指定したアニメーションを動作させながらノードを表示/非表示します。
+.. list-table:: 
+   :widths: 15 85
+   :header-rows: 1
+   
+   * - 機能
+     - 説明
+   * - Effects
+     - 対象のノードに指定したアニメーションを動作させる
+   * - show
+     - 指定したアニメーションを動作させながらノードを表示
+   * - Hide
+     - 指定したアニメーションを動作させながらノードを非表示
+   * - Toggle
+     - 指定したアニメーションを動作させながらノードを表示/非表示
 
 **アニメーションの種類**
 
@@ -23,9 +30,10 @@ Effects/Toggle/Hide/showの4種類があります。
 
 .. list-table:: 
    :widths: 15 85
+   :header-rows: 1
    
-   * - **名称**
-     - **説明**
+   * - 名称
+     - 説明
    * - pulstate
      - 点滅させる
    * - blind
@@ -39,112 +47,132 @@ Effects/Toggle/Hide/showの4種類があります。
 
 アニメーション機能は、CFAnimationクラスを使います。次にAPI一覧を示します。
 
-**CFAnimation API**
+CFAnimation API
+----------------
+
+**effectPulstate**
 
 .. code-block:: java
  
- effectPulstate
  public void effectPulstate(double interval, int times)
  public void effectPulstate(double interval, int times, EventHandler<ActionEvent> callback)
 
+**effectFade**
+
 .. code-block:: java
  
- effectFade
  public void effectFade(double interval, int times)
  public void effectFade(double interval, int times, EventHandler<ActionEvent> callback)
 
+**effectScale**
+
 .. code-block:: java
- effectScale
+ 
  public void effectScale(double interval, double scale)
  public void effectScale(double interval, double scale, EventHandler<ActionEvent> callback)
 
+**showPulstate**
+
 .. code-block:: java
 
- showPulstate
  public void showPulstate(double interval, int times)
  public void showPulstate(double interval, int times, EventHandler<ActionEvent> callback)
 
+**showBlind**
+
 .. code-block:: java
 
- showBlind
  public void showBlind(double interval)
  public void showBlind(double interval, EventHandler<ActionEvent> callback)
 
+**showFade**
+
 .. code-block:: java
 
- showFade
  public void showFade(double interval, int times)
  public void showFade(double interval, int times, EventHandler<ActionEvent> callback)
 
+**showScale**
+
 .. code-block:: java
 
- showScale
  public void effectScale(double interval)
  public void effectScale(double interval, EventHandler<ActionEvent> callback)
 
+**showSlide**
+
 .. code-block:: java
 
- showSlide
  public void effectSlide(double interval)
  public void effectSlide(double interval, EventHandler<ActionEvent> callback)
 
+**hidePulstate**
+
 .. code-block:: java
 
- hidePulstate
  public void showPulstate(double interval, int times)
  public void showPulstate(double interval, int times, EventHandler<ActionEvent> callback)
 
+**hideBlind**
+
 .. code-block:: java
 
- hideBlind
  public void showBlind(double interval)
  public void showBlind(double interval, EventHandler<ActionEvent> callback)
 
+**hideFade**
+
 .. code-block:: java
 
- hideFade
  public void showFade(double interval, int times)
  public void showFade(double interval, int times, EventHandler<ActionEvent> callback)
 
+**hideScale**
+
 .. code-block:: java
 
- hideScale
  public void effectScale(double interval)
  public void effectScale(double interval, EventHandler<ActionEvent> callback)
 
+**hideSlide**
+
 .. code-block:: java
 
- hideSlide
  public void effectSlide(double interval)
  public void effectSlide(double interval, EventHandler<ActionEvent> callback)
 
+**togglePulstate**
+
 .. code-block:: java
 
- togglePulstate
  public void showPulstate(double interval, int times)
  public void showPulstate(double interval, int times, EventHandler<ActionEvent> callback)
 
+**toggleBlind**
+
 .. code-block:: java
 
- toggleBlind
  public void showBlind(double interval)
  public void showBlind(double interval, EventHandler<ActionEvent> callback)
 
+**toggleFade**
+
 .. code-block:: java
 
- toggleFade
  public void showFade(double interval, int times)
  public void showFade(double interval, int times, EventHandler<ActionEvent> callback)
 
+**toggleScale**
+
 .. code-block:: java
 
- toggleScale
  public void effectScale(double interval)
  public void effectScale(double interval, EventHandler<ActionEvent> callback)
 
+**toggleSlide**
+
 .. code-block:: java
 
- toggleSlide
  public void effectSlide(double interval)
  public void effectSlide(double interval, EventHandler<ActionEvent> callback)
 

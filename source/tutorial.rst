@@ -13,7 +13,7 @@ Overview
 
 .. image:: tutorial.Complete.png
 
-開発を始める前に、`JavaFX開発環境をセットアップする <getting_start/set_up.html>`_ を参考に準備をしておいてください。
+開発を始める前に、`JavaFX開発環境をセットアップする <getting_start/set_up>`_ を参考に準備をしておいてください。
 
 次の手順で作成します。
 
@@ -35,7 +35,7 @@ Creamyプロジェクトの作成
 
 まず、NetBeansにCreamyプロジェクトを作成します。
 
-`Creamyプロジェクトの作成 <getting_start/create_creamy_project.html>`_ の手順通りに行えば、簡単に作成することができます。
+`Creamyプロジェクトの作成 <getting_start/create_creamy_project>`_ の手順通りに行えば、簡単に作成することができます。
 
 ここでは、NetBeansに **NewProjeSample** というプロジェクトが作成できますが、プロジェクト名は適宜変更可能です。
 
@@ -45,7 +45,7 @@ Creamyアプリケーションの自動作成
 
 scaffoldコマンドを使うことで、テーブル作成からmodelsクラスの作成までを自動的に行うことができます。
 
-では、`scaffoldによるアプリケーション作成 <getting_start/scaffold.html>`_ の手順に従って作成していきましょう。
+では、`scaffoldによるアプリケーション作成 <getting_start/scaffold>`_ の手順に従って作成していきましょう。
 
 Computerテーブルは以下の構成にします。
 
@@ -80,7 +80,7 @@ newprojesample.NewProjeSampleクラスの、Browserコンストラクタの引�
  
         Browser browser = new Browser("/ComputerController/list");
 
-**アプリケーションの実行** からの手順は、`scaffoldによるアプリケーション作成 <getting_start/scaffold.html>`_ と同様ですので、それに従ってください。
+**アプリケーションの実行** からの手順は、`scaffoldによるアプリケーション作成 <getting_start/scaffold>`_ と同様ですので、それに従ってください。
 
 実行結果は、以下の通りです。
 
@@ -115,7 +115,7 @@ Name、Company_name、Introduced（yyyy-mm-dd形式）を入力して Create Com
 
   一旦登録したデータは、アプリケーションを再起動するとクリアされてしまいます。以下を参考に設定を変更しておいてください。
   
-  `scaffoldによるアプリケーション作成 <getting_start/scaffold.html>`_
+  `scaffoldによるアプリケーション作成 <getting_start/scaffold>`_
   ebean.propertiesのddl.run設定に関する注意事項
 
 日付データを登録する
@@ -154,9 +154,9 @@ SimpleDateFormatで指定している通り、Introduced値にはyyyy-MM-dd形�
 
 検索画面は次の2つのファイルをダウンロードして、views.computercontrollerパッケージ下に配置してください。
 
-* :download:`こちらから <./test/Search.java>` Search.javaをダウンロードしてください。
+* :download:`こちらから <tutorial/test/Search.java>` Search.javaをダウンロードしてください。
 
-* :download:`こちらから <./test/Search.vm.fxml>` Search.vm.fxmlをダウンロードしてください。
+* :download:`こちらから <tutorial/test/Search.vm.fxml>` Search.vm.fxmlをダウンロードしてください。
 
 Search.vm.fxmlファイルは、Scene Builderで開くことができます。
 

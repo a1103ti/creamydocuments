@@ -11,7 +11,8 @@ Overview
 
 **画面例**
 
-.. image:: tutorial.Complete.png
+.. image:: tutorial.Step6.png
+    :width: 600px
 
 開発を始める前に、`JavaFX開発環境をセットアップする <getting_start/set_up>`_ を参考に準備をしておいてください。
 
@@ -152,11 +153,11 @@ SimpleDateFormatで指定している通り、Introduced値にはyyyy-MM-dd形�
 
 データが登録できましたので、検索機能を追加してみましょう。
 
-検索画面は次の2つのファイルをダウンロードして、views.computercontrollerパッケージ下に配置してください。
+検索画面は次の2つのファイルをコピーして、views.computercontrollerパッケージ下に配置してください。
 
-* :download:`こちらから <tutorial/test/Search.java>` Search.javaをダウンロードしてください。
+* :download:`こちらから <tutorial/test/Search.java>` Search.javaをコピーしてください。
 
-* :download:`こちらから <tutorial/test/Search.vm.fxml>` Search.vm.fxmlをダウンロードしてください。
+* :download:`こちらから <tutorial/test/Search.vm.fxml>` Search.vm.fxmlをコピーしてください。
 
 Search.vm.fxmlファイルは、Scene Builderで開くことができます。
 

@@ -22,14 +22,9 @@ Overview
 
 2. Creamyアプリケーションの自動作成
 
-3. 日付データを表示する
+3. 日付データを登録する
 
-4. 検索画面を作る
-
-5. Searchボタン、Cancelボタンの処理を実装
-
-6. 検索処理を実装
-
+4. 検索機能を追加する
 
 Creamyプロジェクトの作成
 =============================================
@@ -137,6 +132,8 @@ Name、Company_name、Introduced（yyyy-mm-dd形式）を入力して Create Com
         return redirect(LIST_PATH);
     }
 
+プログラムを再構築して実行します。
+
 SimpleDateFormatで指定している通り、Introduced値にはyyyy-MM-dd形式で入力します。
 
 データ入力後には、以下のように表示され、日付データが登録できます。
@@ -146,7 +143,7 @@ SimpleDateFormatで指定している通り、Introduced値にはyyyy-MM-dd形�
 .. image:: tutorial.Step7.png
     :width: 600px
 
-登録ができましたので、次に表示を修正しましょう。
+次に日付の表示方法を変更してみましょう。
 
 次のファイルはList.vm.fxmlファイルの一部で、Velocityの構文を使って一覧表示の部分を記述しています。
 
@@ -171,7 +168,7 @@ SimpleDateFormatで指定している通り、Introduced値にはyyyy-MM-dd形�
  <Label text="" GridPane.columnIndex="2" GridPane.rowIndex="$i" />
  #end
 
-検索画面を作る
+検索機能を追加する
 =============================================
 
 データが登録できましたので、検索機能を追加してみましょう。
@@ -221,11 +218,7 @@ SimpleDateFormatで指定している通り、Introduced値にはyyyy-MM-dd形�
         return ok(views.computercontroller.List.class);
     }
 
-では、検索を確認しましょう。
-
-* NetBeansでNewProjeSampleプロジェクトを右クリックして「構築」を選択します。
-
-* エントリーポイントクラスを右クリックして「ファイルを実行」を選択します。
+では、検索を確認しましょう。プログラムを再構築して実行します。
 
 **検索条件入力フィールド**
 

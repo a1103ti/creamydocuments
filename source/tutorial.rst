@@ -118,10 +118,33 @@ Name、Company_name、Introduced（yyyy-mm-dd形式）を入力して Create Com
   `scaffoldによるアプリケーション作成 <getting_start/scaffold.html>`_
   ebean.propertiesのddl.run設定に関する注意事項
 
-日付データを表示する
+日付データを登録する
 =============================================
 
-NetBeansプロジェクトの modelsパッケージに Computerクラスが生成されています。
+次のコードをComputerControllerクラスに追加してください。Introducedに入力した内容を、Date型に変換して登録します。scaffoldで作成したcreateメソッドは削除しておいてください。
+
+.. code-block:: java
+    :linenos:
+    
+    private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    
+    public Result create(Computer computer, @Bind("introduced") String _date) {
+        try {
+            computer.setIntroduced(formatter.parse(_date));
+        } catch (ParseException ex) {}
+        computer.save();
+        return redirect(LIST_PATH);
+    }
+
+SimpleDateFormatで指定している通り、Introduced値にはyyyy-MM-dd形式で入力します。
+
+データ入力後には、以下のように表示され、日付データが登録できます。
+
+**登録結果画面**
+
+.. image:: tutorial.Step7.png
+    :width: 600px
+
 
 
 検索画面を作る
